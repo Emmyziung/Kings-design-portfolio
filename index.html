@@ -3,264 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KingsDesign | Graphic Designer Portfolio</title>
     <link rel="stylesheet" href="./dist/output.css">
-    <script  src="script.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        #mobileMenu {
+            display: none;
+            transition: all 0.3s ease-in-out;
+        }
+        #mobileMenu.show {
+            display: block;
+        }
+        .mobile-menu-slide {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu-slide.show {
+            transform: translateX(0);
+        }
+    </style>
 </head>
 
-<body class="max-w-[99vw] w-[99vw] px-4 pt-3 ">
-    <section id="hero" class= "h-screen flex flex-col  max-h-screen mb-16 ">
-        <header class="flex justify-between items-center">
+<body class="w-full overflow-x-hidden">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-50 z-50 lg:hidden">
+        <div class="bg-white h-full w-4/5 max-w-sm p-6 ml-auto mobile-menu-slide">
+            <div class="flex justify-between items-center mb-8">
+                <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
+                <button id="closeMenu" class="text-2xl text-slate-700 hover:text-[#1311a3f3]">&times;</button>
+            </div>
+            <nav class="flex flex-col space-y-4">
+                <a href="#hero" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Home</a>
+                <a href="#about" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">About</a>
+                <a href="#services" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Services</a>
+                <a href="#portfolio" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Portfolio</a>
+                <a href="#testimonials" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Testimonials</a>
+                <a href="#footer" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <section id="hero" class="h-screen mt-4 flex flex-col max-h-screen mb-16">
+        <header class="flex justify-between items-center pl-4">
             <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
-              <nav class="flex text-sm text-slate-700 min-w-[45vw] font-medium justify-around items-center">
-                <div>Home</div>
-                <div>About</div>
-                <div>Testimonials</div>
-                <div>Portfolio</div>
-                <div class="whitespace-nowrap rounded-md text-white p-2 bg-[#1311a3f3]">Let's Talk</div>
-              </nav>
-
+            
+            <!-- Mobile Menu Button -->
+            <button id="openMenu" class="lg:hidden text-2xl text-slate-700 p-2 hover:bg-slate-100 rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex text-sm text-slate-700 min-w-[45vw] font-medium justify-around items-center">
+                <a href="#hero" class="hover:text-[#1311a3f3] transition-colors">Home</a>
+                <a href="#about" class="hover:text-[#1311a3f3] transition-colors">About</a>
+                <a href="#services" class="hover:text-[#1311a3f3] transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-[#1311a3f3] transition-colors">Portfolio</a>
+                <a href="#testimonials" class="hover:text-[#1311a3f3] transition-colors">Testimonials</a>
+                <a href="#footer" class="whitespace-nowrap rounded-md text-white p-2 bg-[#1311a3f3] hover:bg-[#0f0d8a] transition-colors">Let's Talk</a>
+            </nav>
         </header>
-        <div class=" flex  justify-center">
-            <div class="w-1/2 flex h-full  flex-col justify-center">
 
-                <p class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-800 mb-3 lg:mb-4 ">
-                     Be Bold, Elevate your Brand with <span class="text-[#1311a3f3]">Kings</span> Designs
+        <div class="flex justify-center pl-4">
+            <div class="w-1/2 flex h-full flex-col justify-center">
+                <p class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-800 mb-3 lg:mb-4">
+                    Be Bold, Elevate your Brand with <span class="text-[#1311a3f3]">Kings</span> Designs
                 </p>
                 <p class="font-medium text-slate-700 mb-3 lg:text-lg">Bringing your Brand to life one pixel at a time...</p>
                 <div class="flex w-full max-w-[16rem] gap-x-2 mt-2">
-                    <button class="border-2 text-white  border-[#211ec2e3]  bg-gradient-to-r from-[#211ec2e3] via-[#1311a3f3] to-[#131194fd] rounded-lg w-1/2 font-semibold text-sm py-1.5">View Portfolio</button>
-                    <button class="border-2 border-slate-700 px-2 py-[6px] whitespace-nowrap w-1/2 bg-transparent rounded-lg font-medium text-slate-700">Hire Me</button>
+                    <button class="border-2 text-white border-[#211ec2e3] bg-gradient-to-r from-[#211ec2e3] via-[#1311a3f3] to-[#131194fd] rounded-lg w-1/2 font-semibold text-sm py-1.5 hover:from-[#131194fd] hover:via-[#1311a3f3] hover:to-[#211ec2e3] hover:shadow-lg hover:scale-105 transition-all duration-300 transform">View Portfolio</button>
+                    <button class="border-2 border-slate-700 px-2 py-[6px] whitespace-nowrap w-1/2 bg-transparent rounded-lg font-medium text-slate-700 hover:bg-slate-700 hover:text-white hover:border-slate-800 hover:shadow-md hover:scale-105 transition-all duration-300 transform">Hire Me</button>
                 </div>
             </div>
+            
             <div class="w-1/2 flex justify-end flex-shrink-0 h-[calc(100vh-50px)] min-h-0 flex-grow-0 relative">
-                 <img src="b img/InShot_20250812_174109197.jpg" alt="" class="w-full object-cover"> 
-            <!--    <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent w-1/4 "></div> -->
+                <img src="b img/InShot_20250812_174109197.jpg" alt="" class="w-full object-cover">
             </div>
         </div>
-
     </section>
-    <section id="servies" class="w-4/5 mx-auto grid grid-cols-4 gap-5 mb-16 ">
-        <div class="aspect-square  px-3 py-4 flex flex-col justify-between ">
-            <p class="font-medium  text-[#1311a3f3]">LET'S WORK TOGETHER</p>
-            <p class="text-slate-900 font-semibold text-2xl">I Provide a Wide Range of Digital <span class="text-[#1311a3]">Services</span></p>
-            <!-- <div class="flex justify-center w-full">
-            <img src="b img/1755012340502.jpg" alt="" class="self-center w-1/2 aspect-[3/2]">
-            </div> -->
-            <div>
-            <svg xmlns="http://www.w3.org/2000/svg" id="Слой_1" data-name="Слой 1" viewBox="0 0 1013.06 561.69"><defs><style>.cls-1{fill:#1311a3f3;}</style></defs><polygon class="cls-1" points="1013.06 400.2 811.43 309.66 875.14 427.9 861.39 561.69 1013.06 400.2"/><path class="cls-1" d="M1205.36,728.52l-4.8.71-4.62.65-9.16,1.22q-9.13,1.17-18.24,2.23-18.21,2.11-36.39,3.82-36.37,3.42-72.79,5.5t-72.88,2.78q-36.47.72-73-.1A1420.86,1420.86,0,0,1,767.89,735c-48.35-6.11-96.49-15-143.59-28.42a675.77,675.77,0,0,1-69.5-23.86c-2.84-1.18-5.7-2.27-8.51-3.52l-8.43-3.71-4.21-1.85c-1.4-.63-2.78-1.32-4.17-2l-8.32-4c-2.79-1.28-5.49-2.77-8.23-4.15l-8.2-4.23-8.06-4.5c-2.67-1.52-5.39-2.94-8-4.58a399.59,399.59,0,0,1-59.94-43.09l-6.81-6.27c-2.25-2.1-4.56-4.15-6.68-6.38L408.76,588l-1.62-1.64c-.57-.58-1.16-1.24-1.7-1.83-1.08-1.2-2.11-2.39-3.14-3.59a281.26,281.26,0,0,1-21.77-30c-26.27-41.46-43.81-87.65-53.4-135.07A458.28,458.28,0,0,1,318.54,344,503,503,0,0,1,321,272a501,501,0,0,0,1.28,71.77,452.65,452.65,0,0,0,12.16,70.41l1.08,4.33,1.23,4.29,2.45,8.56,2.71,8.49,1.36,4.23c.47,1.41,1,2.8,1.48,4.2l3,8.37,3.25,8.27c1.05,2.77,2.23,5.49,3.4,8.21s2.27,5.46,3.55,8.13a368.09,368.09,0,0,0,35,61.28,264.29,264.29,0,0,0,21.93,27.13c1,1,2,2.06,2.94,3,.5.49.94.93,1.45,1.39l1.62,1.48,6.49,5.92c2.12,2,4.4,3.83,6.64,5.71l6.72,5.58a378.68,378.68,0,0,0,58.83,37.79c2.55,1.43,5.22,2.64,7.83,3.95l7.86,3.87,8,3.61c2.68,1.18,5.31,2.46,8,3.54l8.11,3.35c1.36.56,2.7,1.14,4.06,1.67l4.11,1.56,8.22,3.11c2.73,1,5.53,2,8.29,2.93a648.73,648.73,0,0,0,67.68,19.36c45.87,10.47,92.75,16.68,139.83,20.15a1376.31,1376.31,0,0,0,141.77,2.65q35.49-1.05,70.92-3.6t70.73-6.4q35.29-3.84,70.38-9,17.53-2.58,35-5.53c5.8-1,11.59-2,17.35-3l8.61-1.61,4.25-.83,4.06-.82Z" transform="translate(-318.17 -272)"/></svg>
-            </div>
-        </div>
-        <div class="aspect-square shadow-lg rounded-lg  shadow-[#1311a354] bg-white flex flex-col justify-center px-3 items-center text-center  ">
-            <div class="bg-[#116cd4] w-[30%] aspect-square flex justify-center items-center rounded-full mb-3" >
-                <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
- 
-  <path d="M2 9v6c0 .8.7 1.5 1.5 1.5H9l6 3V5L9 8.5H3.5C2.7 8.5 2 9.1 2 9z" />
-  
-  <path d="M15.5 15.5l2.5 1.2" />
-  <path d="M20 7c1 1.5 1 4 0 5.5" />
-  <path d="M22 5.5c1.6 2.6 1.6 6.5 0 9" />
-</svg>
 
+    <section id="services" class="w-full px-4 mb-16">
+        <!-- Services Grid - Responsive -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+            <!-- Intro Card - Visible on All Screen Sizes -->
+            <div class="aspect-square px-4 sm:px-6 py-6 sm:py-8 flex flex-col justify-between bg-white rounded-xl">
+                <p class="font-medium text-[#1311a3f3] text-xs sm:text-sm">LET'S WORK TOGETHER</p>
+                <p class="text-slate-900 font-semibold text-lg sm:text-xl lg:text-2xl">I Provide a Wide Range of Digital <span class="text-[#1311a3]">Services</span></p>
+                <div class="flex justify-center w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Слой_1" data-name="Слой 1" viewBox="0 0 1013.06 561.69" >
+                        <defs><style>.cls-1{fill:#1311a3f3;}</style></defs>
+                        <polygon class="cls-1" points="1013.06 400.2 811.43 309.66 875.14 427.9 861.39 561.69 1013.06 400.2"/>
+                        <path class="cls-1" d="M1205.36,728.52l-4.8.71-4.62.65-9.16,1.22q-9.13,1.17-18.24,2.23-18.21,2.11-36.39,3.82-36.37,3.42-72.79,5.5t-72.88,2.78q-36.47.72-73-.1A1420.86,1420.86,0,0,1,767.89,735c-48.35-6.11-96.49-15-143.59-28.42a675.77,675.77,0,0,1-69.5-23.86c-2.84-1.18-5.7-2.27-8.51-3.52l-8.43-3.71-4.21-1.85c-1.4-.63-2.78-1.32-4.17-2l-8.32-4c-2.79-1.28-5.49-2.77-8.23-4.15l-8.2-4.23-8.06-4.5c-2.67-1.52-5.39-2.94-8-4.58a399.59,399.59,0,0,1-59.94-43.09l-6.81-6.27c-2.25-2.1-4.56-4.15-6.68-6.38L408.76,588l-1.62-1.64c-.57-.58-1.16-1.24-1.7-1.83-1.08-1.2-2.11-2.39-3.14-3.59a281.26,281.26,0,0,1-21.77-30c-26.27-41.46-43.81-87.65-53.4-135.07A458.28,458.28,0,0,1,318.54,344,503,503,0,0,1,321,272a501,501,0,0,0,1.28,71.77,452.65,452.65,0,0,0,12.16,70.41l1.08,4.33,1.23,4.29,2.45,8.56,2.71,8.49,1.36,4.23c.47,1.41,1,2.8,1.48,4.2l3,8.37,3.25,8.27c1.05,2.77,2.23,5.49,3.4,8.21s2.27,5.46,3.55,8.13a368.09,368.09,0,0,0,35,61.28,264.29,264.29,0,0,0,21.93,27.13c1,1,2,2.06,2.94,3,.5.49.94.93,1.45,1.39l1.62,1.48,6.49,5.92c2.12,2,4.4,3.83,6.64,5.71l6.72,5.58a378.68,378.68,0,0,0,58.83,37.79c2.55,1.43,5.22,2.64,7.83,3.95l7.86,3.87,8,3.61c2.68,1.18,5.31,2.46,8,3.54l8.11,3.35c1.36.56,2.7,1.14,4.06,1.67l4.11,1.56,8.22,3.11c2.73,1,5.53,2,8.29,2.93a648.73,648.73,0,0,0,67.68,19.36c45.87,10.47,92.75,16.68,139.83,20.15a1376.31,1376.31,0,0,0,141.77,2.65q35.49-1.05,70.92-3.6t70.73-6.4q35.29-3.84,70.38-9,17.53-2.58,35-5.53c5.8-1,11.59-2,17.35-3l8.61-1.61,4.25-.83,4.06-.82Z" transform="translate(-318.17 -272)"/>
+                    </svg>
+                </div>
             </div>
-            <p class="text-slate-900 mb-3 text-2xl font-semibold">Branding</p>
-            <p class="font-medium text-slate-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus possimus.</p>
-        </div>
-        <div class="aspect-square shadow-lg rounded-lg  shadow-[#1311a354] bg-white flex flex-col justify-center px-3 items-center text-center  ">
-            <div class="bg-[#ff7c01ea] w-[30%] aspect-square flex justify-center items-center rounded-full mb-3" >
-                <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width="48" height="48" fill="#fff" aria-hidden="true">
-  <path d="M3 6.5A3.5 3.5 0 0 1 6.5 3h11A3.5 3.5 0 0 1 21 6.5v6A3.5 3.5 0 0 1 17.5 16H9l-4 3V6.5z"/>
-  <circle cx="11.2" cy="8.6" r="1.1" fill="black"/>
-  <circle cx="13.6" cy="9.4" r="0.9" fill="black"/>
-  <circle cx="12.4" cy="11.2" r="0.8" fill="black"/>
-  <circle cx="10.1" cy="11.0" r="0.75" fill="black"/>
-  <path d="M10.5 9.5c1.2-1.5 4.5-2 5.8-.6 1.4 1.4.6 3.6-1.2 4.3-.7.3-1.8.8-2.1 1.6-.3.8.2 1.4.9 1.4" fill="black"/>
-</svg>
 
+            <!-- Service Cards -->
+            <div class="aspect-square shadow-lg rounded-lg shadow-[#1311a354] bg-white flex flex-col justify-center px-4 sm:px-6 items-center text-center">
+                <div class="bg-[#116cd4] w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex justify-center items-center rounded-full mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 9v6c0 .8.7 1.5 1.5 1.5H9l6 3V5L9 8.5H3.5C2.7 8.5 2 9.1 2 9z" />
+                        <path d="M15.5 15.5l2.5 1.2" />
+                        <path d="M20 7c1 1.5 1 4 0 5.5" />
+                        <path d="M22 5.5c1.6 2.6 1.6 6.5 0 9" />
+                    </svg>
+                </div>
+                <h3 class="text-slate-900 mb-2 sm:mb-3 text-base sm:text-lg lg:text-xl font-semibold">Branding</h3>
+                <p class="font-medium text-slate-600 text-xs sm:text-sm lg:text-base">Create memorable brand identities that stand out and connect with your audience.</p>
             </div>
-            <p class="text-slate-900 mb-3 text-2xl font-semibold">Social Media Design</p>
-            <p class="font-medium text-slate-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus possimus.</p>
-        </div>
-        <div class="aspect-square shadow-lg rounded-lg  shadow-[#1311a354] bg-white flex flex-col justify-center px-3 items-center text-center  ">
-            <div class="bg-[#00BCD4] w-[30%] aspect-square rounded-full flex justify-center items-center mb-3" >
-                                <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-  <rect x="2.5" y="2.5" width="19" height="19" rx="1.2" />
-  
-  <path d="M8 3v18" />
-  <path d="M16 3v13" />
-  
-  <path d="M3 8h14" />
-  <path d="M3 16h8" />
-</svg>
+
+            <div class="aspect-square shadow-lg rounded-lg shadow-[#1311a354] bg-white flex flex-col justify-center px-4 sm:px-6 items-center text-center">
+                <div class="bg-[#ff7c01ea] w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex justify-center items-center rounded-full mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="#fff" aria-hidden="true">
+                        <path d="M3 6.5A3.5 3.5 0 0 1 6.5 3h11A3.5 3.5 0 0 1 21 6.5v6A3.5 3.5 0 0 1 17.5 16H9l-4 3V6.5z"/>
+                        <circle cx="11.2" cy="8.6" r="1.1" fill="black"/>
+                        <circle cx="13.6" cy="9.4" r="0.9" fill="black"/>
+                        <circle cx="12.4" cy="11.2" r="0.8" fill="black"/>
+                        <circle cx="10.1" cy="11.0" r="0.75" fill="black"/>
+                        <path d="M10.5 9.5c1.2-1.5 4.5-2 5.8-.6 1.4 1.4.6 3.6-1.2 4.3-.7.3-1.8.8-2.1 1.6-.3.8.2 1.4.9 1.4" fill="black"/>
+                    </svg>
+                </div>
+                <h3 class="text-slate-900 mb-2 sm:mb-3 text-base sm:text-lg lg:text-xl font-semibold">Social Media Design</h3>
+                <p class="font-medium text-slate-600 text-xs sm:text-sm lg:text-base">Engaging social media content that boosts your online presence and engagement.</p>
             </div>
-            <p class="text-slate-900 mb-3 text-2xl font-semibold">UI/UX Design</p>
-            <p class="font-medium text-slate-600">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus possimus.</p>
+
+            <div class="aspect-square shadow-lg rounded-lg shadow-[#1311a354] bg-white flex flex-col justify-center px-4 sm:px-6 items-center text-center">
+                <div class="bg-[#00BCD4] w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex justify-center items-center rounded-full mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2.5" y="2.5" width="19" height="19" rx="1.2" />
+                        <path d="M8 3v18" />
+                        <path d="M16 3v13" />
+                        <path d="M3 8h14" />
+                        <path d="M3 16h8" />
+                    </svg>
+                </div>
+                <h3 class="text-slate-900 mb-2 sm:mb-3 text-base sm:text-lg lg:text-xl font-semibold">UI/UX Design</h3>
+                <p class="font-medium text-slate-600 text-xs sm:text-sm lg:text-base">User-centered designs that create intuitive and engaging digital experiences.</p>
+            </div>
         </div>
-        
-       
     </section>
-    <section id="portfolio" class="w-full flex flex-col mb-16">
-        <p class="font-medium text-[#1311a3f3] text-center ">WORKING PROCESS </p>
-        <h2 class="text-center font-bold text-slate-900 text-3xl">My Portfolio</h2>
-        <p class="font-medium text-slate-600 text-center w-[70%] mx-auto my-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim vero ullam excepturi sapiente. Blanditiis quam eius suscipit iste odio nisi delectus ad accusamus? Corrupti, exercitationem doloremque. Quos nam ducimus voluptas?</p>
-       <div class="flex justify-between h-fit mb-5">
-      <!--   <div class="w-1/10 aspect-1/2 shadow-lg hover:shadow-xl shadow-[#1311a354] bg-white">
-                 <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="" class="h-full object-cover object-right">
-        
-        </div> -->
-        <div class="w-4/5 mx-auto grid grid-cols-4 gap-x-3 gap-y-2 ">
+
+    <section id="portfolio" class="w-full px-4  flex flex-col mb-16">
+        <div class="text-center mb-12">
+            <p class="font-medium text-[#1311a3f3] text-sm mb-2">WORKING PROCESS</p>
+            <h2 class="text-center font-bold text-slate-900 text-2xl lg:text-3xl mb-4">My Portfolio</h2>
+            <p class="font-medium text-slate-600 text-center w-full lg:w-[70%] lg:mx-auto text-sm lg:text-base">Explore my latest projects and creative solutions. Each design tells a unique story and delivers measurable results for my clients.</p>
+        </div>
+
+        <!-- Portfolio Grid - Responsive -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
+            <div class="aspect-[4/5] shadow-lg hover:shadow-xl shadow-[#1311a354] bg-white rounded-lg overflow-hidden">
+                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Brand identity project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="aspect-[4/5] shadow-lg hover:shadow-xl shadow-[#1311a354] bg-white rounded-lg overflow-hidden">
+                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Social media design project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="aspect-[4/5] shadow-lg hover:shadow-xl shadow-[#1311a354] bg-white rounded-lg overflow-hidden">
+                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="UI/UX design project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="aspect-[4/5] shadow-lg hover:shadow-xl shadow-[#1311a354] bg-white rounded-lg overflow-hidden">
+                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Print design project" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="#portfolio" class="inline-block border-2 border-slate-700 px-8 py-3 whitespace-nowrap bg-transparent rounded-lg font-medium text-slate-700 hover:bg-slate-700 hover:text-white transition-colors">View All Projects</a>
+        </div>
+    </section>
+
+    <section id="about" class="w-full px-4 lg:px-0 lg:w-4/5 lg:mx-auto mb-16 lg:mb-32">
+        <div class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+            <!-- Profile Image -->
+            <div class="w-48 h-48 lg:w-80 lg:h-80 rounded-full overflow-hidden flex-shrink-0">
+                <img src="b img/IMG-20250729-WA0005.jpg" alt="KingsDesign founder portrait" class="w-full h-full object-cover object-top">
+            </div>
             
-            <div class="aspect-[4/5] shadow-lg hover:shadow-xl  shadow-[#1311a354] bg-white "></div>
-            <div class="aspect-[4/5] shadow-lg hover:shadow-xl  shadow-[#1311a354] bg-white ">
-                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="" class="w-full object-cover">
+            <!-- About Content -->
+            <div class="flex-1 text-center lg:text-left">
+                <h2 class="font-bold text-slate-900 text-2xl lg:text-3xl mb-3">About Me</h2>     
+                <p class="font-medium text-[#1311a3f3] text-sm mb-4">PROFESSIONAL GRAPHICS DESIGNER</p>
+                
+                <div class="relative">
+                    <p class="font-medium text-slate-600 text-justify text-sm lg:text-lg leading-relaxed">
+                        We are Kings Designs, a creative studio built on the belief that great design is more than just visuals, it's a story, an emotion, and a connection. Our work blends bold creativity with purposeful strategy, helping brands not just look good but stand out and stay remembered.
+                        <br>
+                        Over the years, we've partnered with businesses, entrepreneurs, and visionaries to turn ideas into designs that speak. From social media kits to brand identities, we craft each project with precision, passion, and originality that sets it apart.
+                    </p>
+                    
+                    <!-- Decorative Element -->
+                    <img src="b img/InShot_20250813_143504912.png" class="w-16 lg:w-20 -rotate-12 absolute -bottom-4 -right-4 lg:-bottom-12 lg:-right-8 opacity-60" alt="">
+                </div>
             </div>
-            <div class="aspect-[4/5] shadow-lg hover:shadow-xl  shadow-[#1311a354] bg-white "></div>
-            <div class="aspect-[4/5] shadow-lg hover:shadow-xl  shadow-[#1311a354] bg-white "></div>
-        </div>
-        <!-- <div class=" w-1/10 aspect-1/2 shadow-[#1311a354] bg-white shadow-lg hover:shadow-xl">
-                <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="" class="h-full object-cover object-left">
-        </div> -->
-        </div>
-        <button class="border-2 border-slate-700 px-6 py-[6px] whitespace-nowrap  bg-transparent rounded-lg font-medium text-slate-700 self-center mt-16">View All</button>
-    </section>
-    <section id="about" class="mb-32 w-4/5 mx-auto flex">
-        <div class="w-[40%] rounded-full aspect-square flex flex-grow-0 flex-shrink bg-red-400 overflow-hidden ">
-         <!--    <div class="w-full h-full bg-gradient-to-bl from-[#1311a3f3] via-transparent to-transparent"></div> -->
-            <img src="b img/IMG-20250729-WA0005.jpg" alt="" class="w-full object-cover object-top">
-        </div>
-        <div class="w-[55%] ml-8 relative bg-transparent flex flex-col ">
-        <h2 class=" font-bold text-slate-900 text-3xl mb-2">About Me</h2>     
-         <p class="font-medium text-[#1311a3f3] mb-3">PROFESSIONAL GRAPHICS DESIGNER </p>
-            
-         <p class="font-medium text-slate-700 text-justify text-lg ">We are Kings Designs, a creative studio built on the belief that great desugns is more than just visuals, it's a story, an emotion, and a connection. Our work blends bold creativity with purposeful strategy, helping brands not just look good but stand out and stay remembered. <br>Over the years, we've partnered with businesses, entrepreneurs, and visionaries to turn ideas into designs that speak. From social media kits to brand identities, we craft project to brand identities, we craft eachproject with precision, passion, and originality that sets it apart. </p>
-          <img src="b img/InShot_20250813_143504912.png" class="w-20 -rotate-12 self-end " alt="">
-          
         </div>
     </section>
-    <section id="testimonials" class="bg-slate-50 mb-32 h-[70vh]">
-  <div class="w-full h-full flex flex-col justify-around text-center">
-    <div>
-     <p class="text-[#1311a3f3] font-medium max-w-2xl mx-auto">
-     TESTIMONIALS
-    </p>
-      <h2 class="text-3xl font-bold text-slate-900 mb-4">What My Clients Say</h2>
-    </div>
-    <div class="relative w-full  overflow-hidden">
-    <div id="carousel" class="flex transition-transform duration-500 ease-in-out my-2 ">
-      <!-- Testimonial Card -->
-      <div class="bg-white p-6 min-w-[60%] mx-2 shadow-md hover:shadow-lg transition-shadow flex-col flex  justify-around duration-300 ">
-           <div class="text-[#1311a3f3] text-start text-5xl">❝</div>
-        <p class="text-slate-800 font-medium mb-6">
-          "Working with Kings Designs was an absolute pleasure. The attention to detail and creativity exceeded my expectations."
-        </p>
-         
-        <div class="text-start">
-          <h4 class="font-semibold text-[#1311a3f3]">Samuel A.</h4>
-          <span class="text-sm text-slate-500">Entrepreneur</span>
-        </div>
-      </div>
 
-      <!-- Testimonial Card -->
-      <div class="bg-white p-6 min-w-[60%] mx-2 shadow-md hover:shadow-lg transition-shadow  flex-col flex  justify-around duration-300">
-          <div class="text-[#1311a3f3] text-start text-5xl">❝</div>
-        <p class="text-slate-800 font-medium mb-6">
-          "The design captured my brand perfectly. Communication was smooth and delivery was right on time."
-        </p>
-        <div class="text-start">
-          <h4 class="font-semibold text-[#1311a3f3]">Amaka C.</h4>
-          <span class="text-sm text-slate-500">Social Media Manager</span>
-        </div>
-      </div>
-      <!-- Testimonial Card -->
-      <div class="bg-white p-6 min-w-[60%] mx-2 shadow-md hover:shadow-lg transition-shadow  flex-col flex  justify-around duration-300">
-          <div class="text-[#1311a3f3] text-start text-5xl">❝</div>
-        <p class="text-slate-800 font-medium mb-6">
-          "Highly recommended! Professional, creative, and dedicated. I look forward to working together again."
-        </p>
-        <div class="text-start">
-          <h4 class="font-semibold text-[#1311a3f3]">David k.</h4>
-          <span class="text-sm text-slate-500">Startup Founder</span>
-        </div>
-      </div>
+    <section id="testimonials" class="bg-slate-50 py-12 lg:py-16 mb-16 lg:mb-32">
+        <div class="w-full px-4 lg:px-0 lg:max-w-6xl lg:mx-auto">
+            <div class="text-center mb-12">
+                <p class="text-[#1311a3f3] font-medium text-sm mb-2">TESTIMONIALS</p>
+                <h2 class="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">What My Clients Say</h2>
+            </div>
 
-      
-     
-
-      
-    </div>
-    </div>
-    
-<div id="indicators" class="flex justify-center space-x-2 mt-4"></div>
-
-     <div >
-     <!-- Prev Button -->
-    <button id="prevBtn"
-      class="">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 opacity-90 hover:opacity-100 duration-400 text-slate-800">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
-
-    </button>
-
-    <!-- Next Button -->
-    <button id="nextBtn"
-      class="">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-12 text-slate-800 opacity-90 hover:opacity-100 duration-400">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
-
-    
-    </button>
-    </div>
-  </div>
-</section>
-
-
-    <section id="footer w-full">
-        <div class="flex ">
-            <div class="w-1/10 h-[20vh] bg-[#111827] self-end"></div>
-            <div class="bg-gradient-to-t from-[#111827]  via-[#111827] to-white w-4/5 h-[40vh]">
-                <div class="bg-white  rounded-3xl h-[40vh] overflow-hidden relative flex flex-grow-0 flex-shrink-0">
-                    <img src="b img/videography-specialist-editing-new-movie-clip-video-montage.jpg" alt="" class="w-full  object-cover opacity-65">
-                    <div class="absolute inset-0 bg-[#00000088] "></div>
-                    <div class="absolute opacity-40 inset-0 bg-[#131b5f88] "></div>
-                    <div class="absolute inset-0 flex flex-col justify-center items-center text-white">
-                        <p class="text-md font-medium mb-3">Let's Create Something Amazing Together</p>
-                        <p class="text-2xl font-bold mb-5">Contact Me For Your Next Project</p>
-                        <button class="border-2 border-white px-4 py-[6px] whitespace-nowrap  bg-transparent rounded-lg font-medium text-white">Contact Me</button>
+            <!-- Mobile Testimonials (Stacked) -->
+            <div class="lg:hidden space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-[#1311a3f3] text-4xl mb-4">❝</div>
+                    <p class="text-slate-800 font-medium mb-6 text-sm lg:text-base">
+                        "Working with Kings Designs was an absolute pleasure. The attention to detail and creativity exceeded my expectations."
+                    </p>
+                    <div>
+                        <h4 class="font-semibold text-[#1311a3f3]">Samuel A.</h4>
+                        <span class="text-sm text-slate-500">Entrepreneur</span>
                     </div>
                 </div>
-          </div>
-          <div class="w-1/10 h-[20vh] bg-[#111827] self-end"></div>
-        </div>
 
-        <div class="w-full text-white  bg-[#111827]">
-          <div class="w-4/5 self-center mx-auto pt-8">
-          <div class="flex items-center "> 
-          <img src="b img/InShot_20250813_150708080.png" alt="" class="w-10">
-          <h3 class="text-white px-2 font-medium  text-lg">Kings Design</h3>
-         </div>
-         <p class="font-medium text-4xl my-4">Take Your Brand To The Next Level</p>
-         <p class="font-semibold text-[#131fa3f3] underline">Start a project</p>
-         <div class="my-10 flex justify-between">
-         <div class="grid grid-cols-2 gap-y-4  w-1/3">
-          <div>Instagram</div>
-          <div>Behance</div>
-          <div>Whatsapp</div>
-          <div>Fiver</div>
-         </div>
-         <div class="w-1/3">
-            <p class="pb-2">Subscribe to my Newsletter</p>
-            <form class="flex bg-[#3c424dc2] items-center rounded focus:border-none  pr-2 justify-between">
-                <input type="email" placeholder="Enter your email" class="px-4 py-2 focus:border-none w-full  h-full">
-                <button class="border-2 border-[#3c424dc2] px-4 py-[6px] whitespace-nowrap   rounded-lg font-medium text-white bg-[#113fa3f3] self-start my-2">Subscribe</button>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-[#1311a3f3] text-4xl mb-4">❝</div>
+                    <p class="text-slate-800 font-medium mb-6 text-sm lg:text-base">
+                        "The design captured my brand perfectly. Communication was smooth and delivery was right on time."
+                    </p>
+                    <div>
+                        <h4 class="font-semibold text-[#1311a3f3]">Amaka C.</h4>
+                        <span class="text-sm text-slate-500">Social Media Manager</span>
+                    </div>
+                </div>
 
-         </div>
-         </div>
-         <hr class="text-[#3c424dc2] ">
-         <p class="py-2 text-gray-400">&copy;2025 Kings Design, All Rights Reserved </p>
-         </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="text-[#1311a3f3] text-4xl mb-4">❝</div>
+                    <p class="text-slate-800 font-medium mb-6 text-sm lg:text-base">
+                        "Highly recommended! Professional, creative, and dedicated. I look forward to working together again."
+                    </p>
+                    <div>
+                        <h4 class="font-semibold text-[#1311a3f3]">David K.</h4>
+                        <span class="text-sm text-slate-500">Startup Founder</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Testimonials (Carousel) -->
+            <div class="hidden lg:block relative">
+                <div id="carousel" class="flex transition-transform duration-500 ease-in-out">
+                    <div class="bg-white p-8 min-w-full shadow-md hover:shadow-lg transition-shadow duration-300 rounded-xl">
+                        <div class="text-[#1311a3f3] text-6xl mb-6">❝</div>
+                        <p class="text-slate-800 font-medium mb-8 text-lg max-w-3xl">
+                            "Working with Kings Designs was an absolute pleasure. The attention to detail and creativity exceeded my expectations."
+                        </p>
+                        <div>
+                            <h4 class="font-semibold text-[#1311a3f3] text-xl">Samuel A.</h4>
+                            <span class="text-slate-500">Entrepreneur</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button id="prevBtn" class="p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 9-3 3m0 0 3 3m-3-3h7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="p-2 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-800">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section id="footer" class="w-full">
+        <!-- CTA Banner -->
+        <div class="px-4 lg:px-0">
+            <div class="bg-gradient-to-t from-[#111827] via-[#111827] to-white rounded-t-3xl lg:rounded-none overflow-hidden">
+                <div class="bg-white rounded-3xl lg:rounded-none h-80 lg:h-[40vh] overflow-hidden relative">
+                    <img src="b img/videography-specialist-editing-new-movie-clip-video-montage.jpg" alt="Creative collaboration workspace" class="w-full h-full object-cover opacity-65">
+                    <div class="absolute inset-0 bg-[#00000088]"></div>
+                    <div class="absolute opacity-40 inset-0 bg-[#131b5f88]"></div>
+                    <div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
+                        <p class="text-base lg:text-lg font-medium mb-3">Let's Create Something Amazing Together</p>
+                        <p class="text-xl lg:text-2xl font-bold mb-6">Contact Me For Your Next Project</p>
+                        <a href="#footer" class="border-2 border-white px-6 py-3 whitespace-nowrap bg-transparent rounded-lg font-medium text-white hover:bg-white hover:text-slate-900 transition-colors">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Content -->
+        <div class="w-full text-white bg-[#111827]">
+            <div class="w-full px-4 lg:px-0 lg:w-4/5 lg:mx-auto pt-8 lg:pt-12">
+                <!-- Brand Section -->
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
+                    <div class="flex items-center mb-6 lg:mb-0"> 
+                        <img src="b img/InShot_20250813_150708080.png" alt="KingsDesign logo" class="w-10 h-10">
+                        <h3 class="text-white px-3 font-medium text-lg">Kings Design</h3>
+                    </div>
+                    <p class="font-medium text-2xl lg:text-4xl text-center lg:text-left">Take Your Brand To The Next Level</p>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center lg:text-left mb-8">
+                    <a href="#footer" class="font-semibold text-[#131fa3f3] underline text-lg hover:text-[#0f0d8a] transition-colors">Start a project</a>
+                </div>
+
+                <!-- Main Footer Content -->
+                <div class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 mb-8">
+                    <!-- Social Links -->
+                    <div class="grid grid-cols-2 gap-4 w-full lg:w-1/3">
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Instagram</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Behance</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">WhatsApp</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Fiverr</a>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="w-full lg:w-1/3">
+                        <p class="pb-3 text-center lg:text-left">Subscribe to my Newsletter</p>
+                        <form class="flex bg-[#3c424dc2] items-center rounded-lg pr-2 justify-between">
+                            <input type="email" placeholder="Enter your email" class="px-4 py-3 focus:outline-none w-full h-full bg-transparent text-white placeholder-slate-300">
+                            <button type="submit" class="border-2 border-[#3c424dc2] px-4 py-3 whitespace-nowrap rounded-lg font-medium text-white bg-[#113fa3f3] hover:bg-[#0f0d8a] transition-colors">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Divider and Copyright -->
+                <hr class="border-[#3c424dc2] mb-4">
+                <p class="py-4 text-gray-400 text-center lg:text-left">&copy; 2025 Kings Design, All Rights Reserved</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-[#1311a3f3] text-white p-3 rounded-full shadow-lg hover:bg-[#0f0d8a] transition-colors opacity-0 pointer-events-none z-40">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
 </body>
 </html>
