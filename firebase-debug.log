@@ -1,0 +1,50 @@
+[debug] [2025-08-18T21:29:14.932Z] ----------------------------------------------------------------------
+[debug] [2025-08-18T21:29:14.940Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2025-08-18T21:29:14.940Z] CLI Version:   14.12.1
+[debug] [2025-08-18T21:29:14.941Z] Platform:      win32
+[debug] [2025-08-18T21:29:14.941Z] Node Version:  v22.14.0
+[debug] [2025-08-18T21:29:14.941Z] Time:          Mon Aug 18 2025 22:29:14 GMT+0100 (West Africa Standard Time)
+[debug] [2025-08-18T21:29:14.942Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-18T21:29:14.951Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-18T21:29:14.952Z] > authorizing via signed-in user (olunugaemmanuel17@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\HP\Documents\Portfolio
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-08-18T21:29:20.637Z] Checked if tokens are valid: true, expires at: 1755556140024
+[debug] [2025-08-18T21:29:20.637Z] Checked if tokens are valid: true, expires at: 1755556140024
+[debug] [2025-08-18T21:29:20.639Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-08-18T21:29:21.476Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-18T21:29:21.477Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project kingsdesignn (KingsDesign) 
+[info] 
+=== Hosting Setup
+[debug] [2025-08-18T21:29:29.225Z] Checked if tokens are valid: true, expires at: 1755556140024
+[debug] [2025-08-18T21:29:29.226Z] Checked if tokens are valid: true, expires at: 1755556140024
+[debug] [2025-08-18T21:29:29.227Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/kingsdesignn [none]
+[debug] [2025-08-18T21:29:29.759Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/kingsdesignn 200
+[debug] [2025-08-18T21:29:29.759Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/kingsdesignn {"projectId":"kingsdesignn","projectNumber":"767602534908","displayName":"KingsDesign","name":"projects/kingsdesignn","resources":{"hostingSite":"kingsdesignn"},"state":"ACTIVE","etag":"1_fd8b5f7d-eece-48b5-8a21-0287609511ec"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] +  Wrote dist/404.html 
+[debug] [2025-08-18T21:39:03.028Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-08-18T21:39:03.546Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2025-08-18T21:39:03.547Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"12.1.0","browserURL":"https://www.gstatic.com/firebasejs/12.1.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/12.1.0/firebase.tgz"},"live":{"version":"12.1","browserURL":"https://www.gstatic.com/firebasejs/live/12.1/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/12.1/firebase.tgz"},"components":{"ai":"https://www.gstatic.com/firebasejs/12.1.0/firebase-ai.js","analytics":"https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/12.1.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/12.1.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/12.1.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/12.1.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/12.1.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js","data-connect":"https://www.gstatic.com/firebasejs/12.1.0/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.memory.js"}}
