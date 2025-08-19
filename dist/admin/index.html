@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin</title>
+  <link rel="icon" type="image/png" href="../b img/InShot_20250813_151255810.png">
+
+</head>
+<body>
+  <h1>Admin</h1>
+
+  <div id="loginView">
+    <input id="email" type="email" placeholder="Email" />
+    <input id="password" type="password" placeholder="Password" />
+    <button id="loginBtn">Log in</button>
+  </div>
+
+  <div id="appView" style="display:none;">
+    <p>Signed in.</p>
+    <button id="logoutBtn">Log out</button>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // TODO: replace with your config from Firebase Console → Project settings → Web app
+    const firebaseConfig = {
+        apiKey: "AIzaSyBpmhtLdaoteX-7aV0m_1kMvuMTWuex-E4",
+  authDomain: "kingsdesignn.firebaseapp.com",
+  projectId: "kingsdesignn",
+  storageBucket: "kingsdesignn.firebasestorage.app",
+  messagingSenderId: "767602534908",
+  appId: "1:767602534908:web:41cd5615909a3d0e5a2a79",
+  measurementId: "G-EBD0V8S97L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const loginView = document.getElementById('loginView');
+    const appView = document.getElementById('appView');
+    const emailEl = document.getElementById('email');
+    const passEl = document.getElementById('password');
+
+    document.getElementById('loginBtn').addEventListener('click', async () => {
+      try { await signInWithEmailAndPassword(auth, emailEl.value, passEl.value); }
+      catch (e) { alert(e.message); }
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) { loginView.style.display = 'none'; appView.style.display = 'block'; }
+      else { loginView.style.display = 'block'; appView.style.display = 'none'; }
+    });
+  </script>
+</body>
+</html>

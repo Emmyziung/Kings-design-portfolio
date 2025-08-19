@@ -1,1 +1,72 @@
-@import "tailwindcss"
+@import "tailwindcss";
+@source "../dist/**/*.{html,js}";
+
+@layer components {
+    /* Mobile menu visibility and transitions */
+    #mobileMenu {
+        @apply hidden opacity-0 invisible transition-all duration-300 ease-in-out;
+    }
+    #mobileMenu.show {
+        @apply block opacity-100 visible;
+    }
+    #mobileMenu.closing {
+        @apply opacity-0 invisible;
+    }
+    #mobileMenu.closing .mobile-menu-slide {
+        @apply -translate-x-full;
+    }
+
+    .mobile-menu-slide {
+        @apply -translate-x-full transition-transform duration-500 ease-in-out;
+        backface-visibility: hidden;
+        perspective: 1000px;
+    }
+    .mobile-menu-slide.show {
+        @apply translate-x-0;
+    }
+    .mobile-menu-slide > * {
+        @apply opacity-0 translate-y-5 transition-all duration-300 ease-in-out;
+    }
+    .mobile-menu-slide.show > * {
+        @apply opacity-100 translate-y-0;
+    }
+    #closeMenu {
+        @apply transition-all duration-300 ease-in-out;
+        transform: scale(1);
+    }
+    #closeMenu:hover { transform: scale(1.1) rotate(90deg); }
+
+    /* Filter buttons */
+    .filter-btn { @apply transition-all duration-300 ease-in-out relative overflow-hidden; }
+    .filter-btn::before {
+        content: '';
+        position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(19, 17, 163, 0.1), transparent);
+        transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .filter-btn:hover::before { left: 100%; }
+    .filter-btn.active {
+        background-image: linear-gradient(to right, #211ec2e3, #1311a3f3, #131194fd);
+        color: #fff !important; border-color: #1311a3f3 !important;
+    }
+
+    /* Portfolio cards */
+    .portfolio-card { @apply transition-all ease-in-out translate-y-5 opacity-0; transition-duration: 0.4s; }
+    .portfolio-card.show { @apply translate-y-0 opacity-100; }
+    .portfolio-card.hidden { display: none; }
+    .portfolio-card:hover { box-shadow: 0 20px 40px rgba(19, 17, 163, 0.15); transform: translateY(-8px); }
+    .portfolio-image { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .portfolio-card:hover .portfolio-image { transform: scale(1.05); }
+    .category-badge { @apply transition-all duration-300 ease-in-out; }
+    .portfolio-card:hover .category-badge { transform: scale(1.05); }
+
+    /* Project modal */
+    #projectModal { @apply hidden opacity-0 invisible; transition: opacity 0.3s var(--ease-in-out), visibility 0.3s var(--ease-in-out); }
+    #projectModal.show { @apply block opacity-100 visible; }
+    .modal-panel { transform: translateY(20px); transition: transform 0.3s var(--ease-in-out); }
+    #projectModal.show .modal-panel { transform: translateY(0); }
+
+    /* Fullscreen image lightbox */
+    #imageLightbox { @apply hidden opacity-0 invisible; transition: opacity 0.3s var(--ease-in-out), visibility 0.3s var(--ease-in-out); }
+    #imageLightbox.show { @apply block opacity-100 visible; }
+}

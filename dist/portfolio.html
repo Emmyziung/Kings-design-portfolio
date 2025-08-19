@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | KingsDesign | Graphic Designer Portfolio</title>
+    <link rel="icon" type="image/png" href="b img/InShot_20250813_151255810.png">
+    <link rel="stylesheet" href="output.css">
+    <script src="script.js" defer></script>
+    
+</head>
+
+<body class="w-full overflow-x-hidden">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-[#d4d4d450] bg-opacity-50 z-50 lg:hidden">
+        <div class="bg-white h-full w-4/5 max-w-sm p-6 mr-auto mobile-menu-slide">
+            <div class="flex justify-between items-center mb-8">
+                <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
+                <button id="closeMenu" class="text-2xl text-slate-700 hover:text-[#1311a3f3]">&times;</button>
+            </div>
+            <nav class="flex font-medium flex-col space-y-4">
+                <a href="index.html" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Home</a>
+                <a href="index.html#about" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">About</a>
+                <a href="index.html#services" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Services</a>
+                <a href="portfolio.html" class="text-[#1311a3f3] py-3 px-2 rounded bg-slate-100">Portfolio</a>
+                <a href="index.html#testimonials" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Testimonials</a>
+                <a href="index.html#footer" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Portfolio Header Section -->
+    <section id="hero" class="pt-4 pb-8 bg-gradient-to-br from-slate-50 to-white">
+        <div class="w-full px-4 lg:px-0  lg:mx-auto">
+            <header class="flex justify-between items-center pl-4 mb-12">
+                <div class="flex -ml-4 items-center">
+                    <img src="b img/InShot_20250813_151255810.png" alt="KingsDesign logo" class="h-7 w-auto mr-2">
+                    <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="openMenu" class="lg:hidden text-2xl text-slate-700 p-2 hover:bg-slate-100 rounded">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex text-sm text-slate-700 min-w-[45vw] font-medium justify-around items-center">
+                    <a href="index.html" class="hover:text-[#1311a3f3] transition-colors">Home</a>
+                    <a href="index.html#about" class="hover:text-[#1311a3f3] transition-colors">About</a>
+                    <a href="index.html#services" class="hover:text-[#1311a3f3] transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-[#1311a3f3] font-semibold">Portfolio</a>
+                    <a href="index.html#testimonials" class="hover:text-[#1311a3f3] transition-colors">Testimonials</a>
+                    <a href="index.html#footer" class="whitespace-nowrap rounded-md text-white p-2 bg-[#1311a3f3] hover:bg-[#0f0d8a] transition-colors">Let's Talk</a>
+                </nav>
+            </header>
+
+            <!-- Portfolio Hero Content -->
+            <div class="text-center lg:w-4/5 max-w-4xl mx-auto">
+                <p class="font-medium text-[#1311a3f3] text-sm mb-4">EXPLORE MY WORK</p>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold text-slate-800 mb-6">
+                    My <span class="text-[#1311a3f3]">Portfolio</span>
+                </h1>
+                <p class="font-medium text-slate-700 text-lg lg:text-xl leading-relaxed">
+                    Discover a collection of creative projects that showcase my passion for design and commitment to delivering exceptional results. Each project represents a unique challenge and creative solution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filter Section -->
+    <section class="w-full px-4 mb-16">
+        <div class="w-full lg:w-4/5 lg:mx-auto">
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-lg border-2 border-slate-300 text-slate-700 font-medium hover:border-[#1311a3f3] hover:text-[#1311a3f3]" data-filter="all">
+                    All Projects
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg border-2 border-slate-300 text-slate-700 font-medium hover:border-[#1311a3f3] hover:text-[#1311a3f3]" data-filter="branding">
+                    Branding
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg border-2 border-slate-300 text-slate-700 font-medium hover:border-[#1311a3f3] hover:text-[#1311a3f3]" data-filter="social-media">
+                    Social Media
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg border-2 border-slate-300 text-slate-700 font-medium hover:border-[#1311a3f3] hover:text-[#1311a3f3]" data-filter="ui-ux">
+                    UI/UX Design
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-lg border-2 border-slate-300 text-slate-700 font-medium hover:border-[#1311a3f3] hover:text-[#1311a3f3]" data-filter="print">
+                    Print Design
+                </button>
+                
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div id="portfolioGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Portfolio Item 1 - Branding -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="branding">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Brand Identity Project" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#116cd4] text-white px-3 py-1 rounded-full text-xs font-medium">Branding</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Modern Brand Identity</h3>
+                        <p class="text-slate-600 text-sm mb-4">Complete brand identity design including logo, color palette, and brand guidelines for a tech startup.</p>
+                        <button data-project-id="branding-1" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 - Social Media -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="social-media">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Social Media Campaign" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#ff7c01ea] text-white px-3 py-1 rounded-full text-xs font-medium">Social Media</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Instagram Campaign</h3>
+                        <p class="text-slate-600 text-sm mb-4">Complete social media campaign design with cohesive visual elements and engaging content.</p>
+                        <button data-project-id="social-1" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 - UI/UX -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="ui-ux">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="UI/UX Design Project" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#00BCD4] text-white px-3 py-1 rounded-full text-xs font-medium">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Mobile App Interface</h3>
+                        <p class="text-slate-600 text-sm mb-4">User-centered mobile app design focusing on intuitive navigation and engaging user experience.</p>
+                        <button data-project-id="uiux-1" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 - Print Design -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="print">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Print Design Project" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#8e44ad] text-white px-3 py-1 rounded-full text-xs font-medium">Print Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Business Card Collection</h3>
+                        <p class="text-slate-600 text-sm mb-4">Premium business card designs with unique finishes and creative layouts for various industries.</p>
+                        <button data-project-id="print-1" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 - UI/UX (converted from Web Design) -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="ui-ux">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="UI/UX Design Project" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#00BCD4] text-white px-3 py-1 rounded-full text-xs font-medium">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Dashboard Interface</h3>
+                        <p class="text-slate-600 text-sm mb-4">Clean and functional dashboard design with intuitive data visualization and navigation.</p>
+                        <button data-project-id="uiux-2" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 - Branding -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="branding">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Logo Design Project" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#116cd4] text-white px-3 py-1 rounded-full text-xs font-medium">Branding</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Restaurant Logo Design</h3>
+                        <p class="text-slate-600 text-sm mb-4">Creative logo design for a modern restaurant with unique typography and memorable iconography.</p>
+                        <button data-project-id="branding-2" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 7 - Social Media -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="social-media">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Social Media Design" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#ff7c01ea] text-white px-3 py-1 rounded-full text-xs font-medium">Social Media</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Facebook Ad Campaign</h3>
+                        <p class="text-slate-600 text-sm mb-4">High-converting Facebook ad designs with compelling visuals and clear call-to-actions.</p>
+                        <button data-project-id="social-2" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 8 - UI/UX -->
+                <div class="portfolio-card bg-white rounded-xl shadow-lg shadow-[#1311a354] overflow-hidden" data-category="ui-ux">
+                    <div class="relative overflow-hidden">
+                        <img src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Dashboard Design" class="portfolio-image w-full h-64 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge bg-[#00BCD4] text-white px-3 py-1 rounded-full text-xs font-medium">UI/UX Design</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-2">Admin Dashboard</h3>
+                        <p class="text-slate-600 text-sm mb-4">Clean and functional admin dashboard design with intuitive data visualization and navigation.</p>
+                        <button data-project-id="uiux-3" class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-2 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="border-2 border-slate-700 px-8 py-3 whitespace-nowrap bg-transparent rounded-lg font-medium text-slate-700 hover:bg-slate-700 hover:text-white hover:shadow-md hover:scale-105 transition-all duration-300 transform">
+                    Load More Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="w-full bg-gradient-to-b from-[#1311a3f3] via-[#211ec2e3] to-[#111827] py-16 mb-0">
+        <div class="w-full px-4 lg:px-0 lg:w-4/5 lg:mx-auto text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Ready to Start Your Project?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Let's collaborate to bring your creative vision to life. I'm here to help you create designs that make an impact.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="index.html#footer" class="border-2 border-white px-8 py-3 whitespace-nowrap bg-transparent rounded-lg font-medium text-white hover:bg-white hover:text-[#1311a3f3] transition-all duration-300 hover:scale-105 transform">
+                    Get Started
+                </a>
+                <a href="index.html" class="border-2 border-white/30 px-8 py-3 whitespace-nowrap bg-transparent rounded-lg font-medium text-white hover:bg-white hover:text-[#1311a3f3] transition-all duration-300 hover:scale-105 transform">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section id="footer" class="w-full">
+        <div class="w-full text-white bg-[#111827]">
+            <div class="w-full px-4 lg:px-0 lg:w-4/5 lg:mx-auto pt-0 lg:pt-0">
+                <div class="flex items-center py-4"> 
+                    <img src="b img/InShot_20250813_150708080.png" alt="KingsDesign logo" class="w-8 h-8 mr-2">
+                    <h3 class="text-white font-medium">Kings Design</h3>
+                </div>
+                <p class="font-medium text-2xl mb-4 lg:text-4xl">Take Your Brand To The Next Level</p>
+                
+                <!-- Main Footer Content -->
+                <div class="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 my-8">
+                    <!-- Social Links -->
+                    <div class="grid grid-cols-2 gap-4 w-full lg:w-1/3">
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Instagram</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Behance</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">WhatsApp</a>
+                        <a href="#" class="hover:text-[#1311a3f3] transition-colors">Fiverr</a>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="w-full lg:w-1/3">
+                        <p class="pb-3 lg:text-left">Subscribe to my Newsletter</p>
+                        <form class="flex bg-[#3c424dc2] items-center rounded-lg pr-2 justify-between">
+                            <input type="email" placeholder="Enter your email" class="px-4 py-4 focus:outline-none w-full h-full bg-transparent text-white placeholder-slate-300">
+                            <button type="submit" class="border-2 border-[#3c424dc2] px-4 py-2 whitespace-nowrap rounded-lg font-medium text-white bg-[#113fa3f3] hover:bg-[#0f0d8a] transition-colors">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Divider and Copyright -->
+                <hr class="border-[#3c424dc2] mb-4">
+                <p class="py-4 text-gray-400 text-center lg:text-left">&copy; 2025 Kings Design, All Rights Reserved</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 bg-[#111827cc] flex justify-center items-center p-4 lg:p-6">
+        <div class="modal-panel bg-white w-full max-w-5xl rounded-xl shadow-lg overflow-hidden">
+            <div class="flex justify-between items-center px-4 py-3 border-b">
+                <div class="flex items-center gap-3">
+                    <span id="projectCategory" class="text-xs font-medium px-2 py-1 rounded-full bg-[#1311a3f3] text-white">Category</span>
+                    <h3 id="projectTitle" class="text-slate-900 text-lg lg:text-xl font-semibold">Project Title</h3>
+                </div>
+                <button id="closeProject" class="text-slate-600 hover:text-slate-900 text-2xl leading-none">&times;</button>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-0 lg:gap-4">
+                <div class="lg:col-span-2 relative bg-slate-50 flex items-center justify-center">
+                    <img id="projectMainImage" src="b img/520273986_18018343349725904_6642175494957712061_n.jpg" alt="Project image" class="w-full h-auto lg:h-[28rem] lg:w-auto object-contain mx-auto">
+                    <div class="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-2">
+                        <button id="prevImage" class="bg-white/80 hover:bg-white text-slate-800 rounded-full p-2 shadow">&#8249;</button>
+                        <button id="nextImage" class="bg-white/80 hover:bg-white text-slate-800 rounded-full p-2 shadow">&#8250;</button>
+                    </div>
+                    <button id="expandImage" class="absolute bottom-3 left-3 bg-white/90 hover:bg-white text-slate-800 rounded-full w-10 h-10 flex items-center justify-center shadow">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                            <path d="M4 9V5a1 1 0 0 1 1-1h4v2H7v3H4zm12-5h4a1 1 0 0 1 1 1v4h-2V7h-3V4zM4 15h2v3h3v2H5a1 1 0 0 1-1-1v-4zm16 4a1 1 0 0 1-1 1h-4v-2h3v-3h2v4z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <p id="projectDescription" class="text-slate-700 text-sm lg:text-base leading-relaxed mb-4">Description will appear here. This supports multiple lines and links.</p>
+                    <div id="projectThumbs" class="grid grid-cols-4 gap-2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Lightbox -->
+    <div id="imageLightbox" class="fixed inset-0 z-[60] bg-[#0b1026e6] flex items-center justify-center p-4">
+        <button id="closeLightbox" class="absolute top-3 right-3 bg-white/90 hover:bg-white text-slate-800 rounded-full w-10 h-10 flex items-center justify-center shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path d="M7 14h2v3h3v2H7v-5zm8 5v-2h3v-3h2v5h-5zM7 7h3V5H5v5h2V7zm10 3h2V5h-5v2h3v3z"/>
+            </svg>
+        </button>
+        <button id="lightboxPrev" class="absolute left-3 lg:left-6 bg-white/80 hover:bg-white text-slate-800 rounded-full p-3 shadow">&#8249;</button>
+        <button id="lightboxNext" class="absolute right-3 lg:right-6 bg-white/80 hover:bg-white text-slate-800 rounded-full p-3 shadow">&#8250;</button>
+        <img id="lightboxImage" src="" alt="Project image fullscreen" class="max-w-full max-h-full object-contain" />
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 bg-[#1311a3f3] text-white p-3 rounded-full shadow-lg hover:bg-[#0f0d8a] transition-colors opacity-0 pointer-events-none z-40">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
+
+    <!-- Portfolio Filtering JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Portfolio page loaded, initializing...');
+            
+            // Mobile Menu Functionality
+            const mobileMenu = document.getElementById('mobileMenu');
+            const openMenuBtn = document.getElementById('openMenu');
+            const closeMenuBtn = document.getElementById('closeMenu');
+            const backToTopBtn = document.getElementById('backToTop');
+
+            if (!mobileMenu || !openMenuBtn || !closeMenuBtn) {
+                console.error('Mobile menu elements not found!');
+                return;
+            }
+
+            // Open mobile menu
+            openMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileMenu.classList.add('show');
+                const slideElement = mobileMenu.querySelector('.mobile-menu-slide');
+                if (slideElement) {
+                    setTimeout(() => {
+                        slideElement.classList.add('show');
+                    }, 10);
+                }
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close mobile menu
+            closeMenuBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileMenu.classList.add('closing');
+                const slideElement = mobileMenu.querySelector('.mobile-menu-slide');
+                if (slideElement) {
+                    slideElement.classList.remove('show');
+                }
+                setTimeout(() => {
+                    mobileMenu.classList.remove('show', 'closing');
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            });
+
+            // Close menu when clicking outside
+            mobileMenu.addEventListener('click', function(e) {
+                if (e.target === mobileMenu) {
+                    mobileMenu.classList.add('closing');
+                    const slideElement = mobileMenu.querySelector('.mobile-menu-slide');
+                    if (slideElement) {
+                        slideElement.classList.remove('show');
+                    }
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('show', 'closing');
+                        document.body.style.overflow = 'auto';
+                    }, 400);
+                }
+            });
+
+            // Close menu when clicking on nav links
+            const mobileNavLinks = mobileMenu.querySelectorAll('nav a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('closing');
+                    const slideElement = mobileMenu.querySelector('.mobile-menu-slide');
+                    if (slideElement) {
+                        slideElement.classList.remove('show');
+                    }
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('show', 'closing');
+                        document.body.style.overflow = 'auto';
+                    }, 400);
+                });
+            });
+
+            // Portfolio Filtering Functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-card');
+            const projectButtons = document.querySelectorAll('[data-project-id]');
+
+            // Modal elements
+            const projectModal = document.getElementById('projectModal');
+            const closeProjectBtn = document.getElementById('closeProject');
+            const projectTitle = document.getElementById('projectTitle');
+            const projectCategory = document.getElementById('projectCategory');
+            const projectDescription = document.getElementById('projectDescription');
+            const projectMainImage = document.getElementById('projectMainImage');
+            const projectThumbs = document.getElementById('projectThumbs');
+            const prevImageBtn = document.getElementById('prevImage');
+            const nextImageBtn = document.getElementById('nextImage');
+
+            // Example data structure (replace with Firebase data later)
+            const demoProjects = {
+                'branding-1': {
+                    title: 'Modern Brand Identity',
+                    category: 'Branding',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg',
+                        'b img/InShot_20250813_143504912.png',
+                        'b img/IMG-20250729-WA0005.jpg'
+                    ],
+                    description: 'Complete brand identity design including logo, palette, and guidelines for a tech startup.'
+                },
+                'social-1': {
+                    title: 'Instagram Campaign',
+                    category: 'Social Media',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'Cohesive campaign visuals and content for engagement growth.'
+                },
+                'uiux-1': {
+                    title: 'Mobile App Interface',
+                    category: 'UI/UX Design',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'User-centered flows and components designed for clarity and speed.'
+                },
+                'print-1': {
+                    title: 'Business Card Collection',
+                    category: 'Print Design',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'Premium stocks and finishes across multiple industries.'
+                },
+                'uiux-2': {
+                    title: 'Dashboard Interface',
+                    category: 'UI/UX Design',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'Data-dense screens optimized for quick scanning and decision-making.'
+                },
+                'branding-2': {
+                    title: 'Restaurant Logo Design',
+                    category: 'Branding',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'Memorable iconography and custom type for hospitality.'
+                },
+                'social-2': {
+                    title: 'Facebook Ad Campaign',
+                    category: 'Social Media',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'High-converting ad variations and messaging tests.'
+                },
+                'uiux-3': {
+                    title: 'Admin Dashboard',
+                    category: 'UI/UX Design',
+                    images: [
+                        'b img/520273986_18018343349725904_6642175494957712061_n.jpg'
+                    ],
+                    description: 'Clean components and accessible color system for enterprise.'
+                }
+            };
+
+            let currentImages = [];
+            let currentIndex = 0;
+
+            function openProject(projectId) {
+                const data = demoProjects[projectId];
+                if (!data) return;
+                projectTitle.textContent = data.title;
+                projectCategory.textContent = data.category;
+                projectDescription.textContent = data.description;
+
+                currentImages = data.images;
+                currentIndex = 0;
+                projectMainImage.src = currentImages[0];
+
+                projectThumbs.innerHTML = '';
+                currentImages.forEach((src, idx) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `Thumbnail ${idx+1}`;
+                    img.className = 'w-full h-16 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#1311a3f3]';
+                    img.addEventListener('click', () => {
+                        currentIndex = idx;
+                        projectMainImage.src = currentImages[currentIndex];
+                    });
+                    projectThumbs.appendChild(img);
+                });
+
+                projectModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeProject() {
+                projectModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+
+            projectButtons.forEach(btn => {
+                btn.addEventListener('click', () => openProject(btn.dataset.projectId));
+            });
+            closeProjectBtn.addEventListener('click', closeProject);
+            projectModal.addEventListener('click', (e) => { if (e.target === projectModal) closeProject(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && projectModal.classList.contains('show')) closeProject(); });
+
+            prevImageBtn.addEventListener('click', () => {
+                if (!currentImages.length) return;
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                projectMainImage.src = currentImages[currentIndex];
+            });
+            nextImageBtn.addEventListener('click', () => {
+                if (!currentImages.length) return;
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                projectMainImage.src = currentImages[currentIndex];
+            });
+
+            // Initialize portfolio items with animation
+            function initializePortfolioItems() {
+                portfolioItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('show');
+                    }, index * 100);
+                });
+            }
+
+            // Filter portfolio items
+            function filterPortfolio(category) {
+                portfolioItems.forEach((item, index) => {
+                    const itemCategory = item.getAttribute('data-category');
+                    
+                    if (category === 'all' || itemCategory === category) {
+                        item.classList.remove('hidden');
+                        setTimeout(() => {
+                            item.classList.add('show');
+                        }, index * 50);
+                    } else {
+                        item.classList.remove('show');
+                        setTimeout(() => {
+                            item.classList.add('hidden');
+                        }, 300);
+                    }
+                });
+            }
+
+            // Add click event listeners to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter category
+                    const category = this.getAttribute('data-filter');
+                    
+                    // Filter portfolio items
+                    filterPortfolio(category);
+                });
+            });
+
+            // Back to top functionality
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Initialize portfolio items
+            initializePortfolioItems();
+
+            // Add hover effects for portfolio cards
+            portfolioItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Keyboard navigation for mobile menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                    mobileMenu.classList.add('closing');
+                    const slideElement = mobileMenu.querySelector('.mobile-menu-slide');
+                    if (slideElement) {
+                        slideElement.classList.remove('show');
+                    }
+                    setTimeout(() => {
+                        mobileMenu.classList.remove('show', 'closing');
+                        document.body.style.overflow = 'auto';
+                    }, 400);
+                }
+            });
+
+            console.log('Portfolio page initialized successfully!');
+        });
+    </script>
+</body>
+</html>
