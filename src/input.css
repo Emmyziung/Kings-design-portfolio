@@ -59,12 +59,22 @@
     .portfolio-card:hover .portfolio-image { transform: scale(1.05); }
     .category-badge { @apply transition-all duration-300 ease-in-out; }
     .portfolio-card:hover .category-badge { transform: scale(1.05); }
+      .portfolio-card .portfolio-image-overlay{
+    display: none;
+  }
 
-    /* Project modal */
-    #projectModal { @apply hidden opacity-0 invisible; transition: opacity 0.3s var(--ease-in-out), visibility 0.3s var(--ease-in-out); }
-    #projectModal.show { @apply block opacity-100 visible; }
-    .modal-panel { transform: translateY(20px); transition: transform 0.3s var(--ease-in-out); }
-    #projectModal.show .modal-panel { transform: translateY(0); }
+  .portfolio-card:hover .portfolio-image-overlay{
+     @media (width >= 48rem) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     }
+  }
+  .portfolio-card.overlay-active .portfolio-image-overlay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
     /* Fullscreen image lightbox */
     #imageLightbox { @apply hidden opacity-0 invisible; transition: opacity 0.3s var(--ease-in-out), visibility 0.3s var(--ease-in-out); }

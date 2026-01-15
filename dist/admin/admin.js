@@ -1,6 +1,6 @@
 // Test if script is loading
 console.log('Admin script loading');
-
+import { auth, onAuthStateChanged, signOut } from "../firebase.js";
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded');
@@ -10,6 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const imageUpload = document.getElementById('imageUpload');
         const imagePreview = document.getElementById('imagePreview');
         const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+          const logoutBtn=  document.getElementById('logoutBtn')
+            
+            logoutBtn.addEventListener('click', () => signOut(auth));
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        
+          window.location.replace("./index.html");
+         }
+     
+    });
         
         if (!imageUpload || !imagePreview || !imagePreviewContainer) {
             console.error('Required elements not found');
