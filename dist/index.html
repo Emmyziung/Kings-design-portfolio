@@ -21,7 +21,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
     <script src="script.js" defer></script>
-    <script src="homepage.js" defer></script>
+    <script src="homepage.js" type='module'></script>
 
         <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -81,7 +81,7 @@
                 <a href="#footer" class="whitespace-nowrap rounded-md text-white p-2 bg-[#1311a3f3] hover:bg-[#0f0d8a] transition-colors">Let's Talk</a>
               </nav>
         </header>
-    <section id="hero" class="sm:h-[90vh] h-[80vh]  bg-gradient-to-b from-white via-white to to-blue-900/10  grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 mb-6">
+    <section id="hero" class="sm:min-h-[90vh] min-h-[80vh]  bg-gradient-to-b from-white via-white to to-blue-900/10  grid grid-cols-1 lg:grid-cols-2 gap-8 px-6 mb-6">
 
             <div class="order-1 flex flex-col justify-end">
             <div class="h-fit">
@@ -92,8 +92,8 @@
           </div>
           </div>
           <div class="order-2 lg:row-span-2  flex justify-center items-center">
-           <div class=" h-fit w-full md:w-4/5" >
-                     <img class="h-full w-full  object-cover object-top" src="b img/InShot_20260108_222607683.png" alt="">
+           <div class="w-full md:w-4/5 max-sm:max-h-[42vh] overflow-hidden" >
+                     <img class="h-auto w-[4/5]  object-contain object-bottom" src="b img/collage.png" alt="">
             </div>
         </div>
           <div class="order-3">

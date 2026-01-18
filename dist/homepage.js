@@ -1,4 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
+import { fetchProjects } from "./portfolio.js";
+fetchProjects()
+
 
 /* ---------------- ELEMENTS ---------------- */
 const parent = document.querySelector("#track");
@@ -172,4 +174,3 @@ window.addEventListener("resize", () => {
         }, 5000);
     }
 
-})

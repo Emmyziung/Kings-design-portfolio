@@ -57,11 +57,19 @@
     .portfolio-card:hover { box-shadow: 0 20px 40px rgba(19, 17, 163, 0.15); transform: translateY(-8px); }
     .portfolio-image { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
     .portfolio-card:hover .portfolio-image { transform: scale(1.05); }
+    .project-card { @apply transition-all ease-in-out translate-y-5 opacity-0; transition-duration: 0.4s; }
+    .project-card.show { @apply translate-y-0 opacity-100; }
+    .project-card.hidden { display: none; }
+    
+    .project-image { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .portfolio-card:hover .portfolio-image { transform: scale(1.05); }
     .category-badge { @apply transition-all duration-300 ease-in-out; }
     .portfolio-card:hover .category-badge { transform: scale(1.05); }
       .portfolio-card .portfolio-image-overlay{
     display: none;
   }
+
+ 
 
   .portfolio-card:hover .portfolio-image-overlay{
      @media (width >= 48rem) {

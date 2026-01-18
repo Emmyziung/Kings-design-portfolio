@@ -1,22 +1,16 @@
-  
+           import { db } from "./firebase.js";
+  import {
+
+    collection, getDocs, query, orderBy
+    
+  } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+        ; 
 const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
     const projectButtons = document.querySelectorAll('[data-project-id]');
     const projectModal = document.getElementById('projectModal');
     const closeProjectBtn = document.getElementById('closeProject');
-/*     const projectTitle = document.getElementById('projectTitle');
-    const projectCategory = document.getElementById('projectCategory');
-    const projectDescription = document.getElementById('projectDescription');
-    const projectMainImage = document.getElementById('projectMainImage');
-    const projectThumbs = document.getElementById('projectThumbs');
-    const prevImageBtn = document.getElementById('prevImage');
-    const nextImageBtn = document.getElementById('nextImage');
-    const expandImageBtn = document.getElementById('expandImage');
-    const imageLightbox = document.getElementById('imageLightbox');
-    const closeLightboxBtn = document.getElementById('closeLightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxPrev = document.getElementById('lightboxPrev');
-    const lightboxNext = document.getElementById('lightboxNext'); */
+    const portfolioGrid = document.getElementById('portfolioGrid');
 
     const PROJECTS_CACHE_KEY = "cachedProjects";
     const CACHE_DURATION_MIN = 10; // minutes
@@ -36,13 +30,7 @@ function goToProject(projectId) {
   window.location.href = `./projects.html?id=${projectId}`;
 }
 
-        // Initialize Firebase
-        import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js").then(({ initializeApp }) => {
-            const app = initializeApp(firebaseConfig);
-            
-            // Import Firestore functions
-            import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js").then(({ getFirestore, collection, getDocs, query, orderBy }) => {
-                const db = getFirestore(app);
+    
                 
                 // Fetch projects from Firestore
                 async function fetchProjects() {
@@ -56,13 +44,20 @@ function goToProject(projectId) {
     // If cache is still valid
     if (now - timestamp < CACHE_DURATION_MIN * 60 * 1000) {
       console.log("Loaded projects from cache:", projects);
+      if(portfolioGrid){
       generatePortfolioCards(projects);
       initializePortfolioItems();
       return;
+      }else{
+        return projects
+      }
     }
   }               try {
+    console.log("Fetching from Firestore")
                         const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
+                        console.log(q)
                         const querySnapshot = await getDocs(q);
+                        console.log(querySnapshot)
                         const projects = [];
                         
                         querySnapshot.forEach((doc) => {
@@ -77,11 +72,16 @@ console.log(projects)
       PROJECTS_CACHE_KEY,
       JSON.stringify({ projects, timestamp: now })
     );}
+
+                      if(portfolioGrid){
                         // Generate portfolio cards dynamically
                         generatePortfolioCards(projects);
                         
                         // Initialize portfolio items with animation
                         initializePortfolioItems();
+                      }else{
+                        return projects
+                      }
                     } catch (error) {
                         console.error("Error fetching projects: ", error);
                     }
@@ -90,7 +90,7 @@ console.log(projects)
                 // Generate portfolio cards dynamically
                 function generatePortfolioCards(projects) {
                     console.log("generating card")
-                    const portfolioGrid = document.getElementById('portfolioGrid');
+                    
                     console.log(portfolioGrid)
                     if (!portfolioGrid) return;
                     
@@ -121,7 +121,7 @@ console.log(projects)
                        
                         card.innerHTML = `
                             <div class="relative overflow-hidden">
-                                <img src="${project.coverImage}" alt="${project.title}" class="portfolio-image w-full  object-cover">
+                                <img src="${project.coverImage}" alt="${project.title}" class="portfolio-image w-full aspect-square  object-cover">
                            
                     
     <div class="absolute portfolio-image-overlay bottom-0 left-0 h-full w-full  " style="background: rgba(0,0,0,0.7);" data-project-id="${project.id}">
@@ -187,90 +187,7 @@ document.addEventListener('click', () => {
 
                 }
                 
-/*                 // Project data for modal
-                let projectData = [];
-                
-                // Open project modal
-                function openProject(projectId, projects) {
-                    // Find project by ID
-                    const project = projects.find(p => p.id === projectId);
-                    if (!project || !projectModal) return;
-                    
-                    projectTitle.textContent = project.title;
-                    projectCategory.textContent = project.catgory.replace('-', ' ');
-                    projectDescription.textContent = project.description;
-                    currentImagesGlobal = project.images;
-                    currentIndexGlobal = 0;
-                    projectMainImage.src = currentImagesGlobal[0];
-                    
-                    projectThumbs.innerHTML = '';
-                    currentImagesGlobal.forEach((src, idx) => {
-                        const img = document.createElement('img');
-                        img.src = src; 
-                        img.alt = `Thumbnail ${idx+1}`;
-                        img.className = 'w-full h-16 object-cover rounded cursor-pointer border-2 border-transparent hover:border-[#1311a3f3]';
-                        img.addEventListener('click', () => { 
-                            currentIndexGlobal = idx; 
-                            projectMainImage.src = currentImagesGlobal[currentIndexGlobal]; 
-                        });
-                        projectThumbs.appendChild(img);
-                    });
-                    
-                    projectModal.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                }
-                
-                let currentImagesGlobal = [];
-                let currentIndexGlobal = 0;
-
-                function closeProject() { 
-                    projectModal.classList.remove('show'); 
-                    document.body.style.overflow = 'auto'; 
-                    document.removeEventListener('keydown', escClose); 
-                }
-                
-                prevImageBtn.onclick = () => { 
-                    currentIndexGlobal = (currentIndexGlobal - 1 + currentImagesGlobal.length) % currentImagesGlobal.length; 
-                    projectMainImage.src = currentImagesGlobal[currentIndexGlobal]; 
-                };
-                nextImageBtn.onclick = () => { 
-                    currentIndexGlobal = (currentIndexGlobal + 1) % currentImagesGlobal.length; 
-                    projectMainImage.src = currentImagesGlobal[currentIndexGlobal]; 
-                };
-                closeProjectBtn.onclick = closeProject;
-                projectModal.onclick = (e) => { if (e.target === projectModal) closeProject(); };
-                document.addEventListener('keydown', escClose);
-
-                function escClose(e) { if (e.key === 'Escape') closeProject(); }
-                
-                // Fullscreen lightbox handlers
-                function openLightbox() {
-                    if (!currentImagesGlobal.length) return;
-                    lightboxImage.src = currentImagesGlobal[currentIndexGlobal];
-                    imageLightbox.classList.add('show');
-                    document.body.style.overflow = 'hidden';
-                }
-                function closeLightbox() {
-                    imageLightbox.classList.remove('show');
-                    document.body.style.overflow = 'auto';
-                }
-                function nextLightbox() {
-                    currentIndexGlobal = (currentIndexGlobal + 1) % currentImagesGlobal.length;
-                    lightboxImage.src = currentImagesGlobal[currentIndexGlobal];
-                }
-                function prevLightbox() {
-                    currentIndexGlobal = (currentIndexGlobal - 1 + currentImagesGlobal.length) % currentImagesGlobal.length;
-                    lightboxImage.src = currentImagesGlobal[currentIndexGlobal];
-                }
-
-                if (expandImageBtn) expandImageBtn.addEventListener('click', openLightbox);
-                if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
-                if (lightboxNext) lightboxNext.addEventListener('click', nextLightbox);
-                if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
-                if (imageLightbox) imageLightbox.addEventListener('click', (e) => { if (e.target === imageLightbox) closeLightbox(); });
-                document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && imageLightbox && imageLightbox.classList.contains('show')) closeLightbox(); });
- */
-                // Initialize portfolio items
+// Initialize portfolio items with animation             
                 function initializePortfolioItems() {
                     const newPortfolioCards = document.querySelectorAll('.portfolio-card');
                     newPortfolioCards.forEach((item, index) => {
@@ -313,8 +230,8 @@ document.addEventListener('click', () => {
 
                 // Fetch projects from Firestore
                 fetchProjects();
-            });
-        });
+            
+        
 
         // Add hover effects for portfolio cards
         portfolioCards.forEach(item => {
@@ -357,3 +274,6 @@ document.addEventListener('click', () => {
             }, 1000);
         }
     });
+
+
+export {fetchProjects};
