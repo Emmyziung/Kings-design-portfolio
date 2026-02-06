@@ -9,6 +9,8 @@
 
         const projectId = new URLSearchParams(window.location.search).get("id");
 if (!projectId) throw new Error("Missing ?id= in URL");
+const projectName = document.getElementById('projectName');
+const projectType = document.getElementById('projectType');
    const projectImages = document.getElementById('projectImages');
     const closeProjectBtn = document.getElementById('closeProject');
     const projectTitle = document.getElementById('projectTitle');
@@ -46,7 +48,10 @@ const renderProject = (project)=> {
                     currentImagesGlobal = project.images;
                     currentIndexGlobal = 0;
                     projectMainImage.src = currentImagesGlobal[0];
-                    
+                    projectName.textContent = ''
+                    projectType.textContent = ''
+                    projectName.textContent = project.title;
+                    projectType.textContent = project.catgory.replace('-', ' ');
                     projectImages.innerHTML = ''
 
                     projectThumbs.innerHTML = '';
