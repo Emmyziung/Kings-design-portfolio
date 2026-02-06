@@ -8,7 +8,7 @@ import { fetchProjects } from "../portfolio.js";
     const confirmDelete= document.getElementById('confirmDelete')
     const cancelDelete= document.getElementById('cancelDelete')
     function goToProject(type, id){
-        window.location.href = `./update.html?type=${type}&id=${id}`
+        window.location.href = `./edit.html?type=${type}&id=${id}`
     }
     
     let selectedProjectId = null;
@@ -126,7 +126,7 @@ deleteBtn.addEventListener("click", (e) => {
         
     }
 
-
+if (window.location.pathname.endsWith("/dashboard.html")) {
                 confirmDelete.addEventListener("click", async (e) => {
   e.stopPropagation();
   if (!selectedProjectId) return;
@@ -147,6 +147,9 @@ cancelDelete.addEventListener("click", (e) => {
   selectedProjectId = null;
 });
     
+}
+
+
 
 
 export {renderProjects}

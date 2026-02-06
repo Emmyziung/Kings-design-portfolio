@@ -62,7 +62,7 @@
               </nav>
         </header>
             <!-- Project Detail Modal -->
-    <section class="h-[89vh] my-2 overflow-hidden">
+    <section class="h-[89vh] max-sm:min-h-[89vh] my-2 sm:overflow-hidden">
   <div
     id="projectModal"
     class="h-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_1fr] md:grid-rows-2 gap-2 px-2 min-h-0"
@@ -72,7 +72,7 @@
       <div class="relative bg-slate-50 h-fit flex items-center justify-center min-h-0">
         <img
           id="projectMainImage"
-          src=""
+          src="./b img/placeholder.webp"
           alt="Project image"
           class="w-full  object-cover object-top"
         />
@@ -88,7 +88,7 @@
 
         <button
           id="expandImage"
-          class="absolute bottom-3 right-3 bg-white/60 hover:bg-white text-slate-800 rounded-full w-10 h-10 flex items-center justify-center shadow-sm font-bold"
+          class="absolute md:top-3 bottom-3 right-3 bg-white/60 hover:bg-white text-slate-800 rounded-full w-10 h-10 flex items-center justify-center shadow-sm font-bold"
         >
          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2-icon lucide-maximize-2"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/><path d="M9 21H3v-6"/></svg>
         </button>
@@ -101,11 +101,11 @@
     </div>
 
     <!-- BOTTOM (fills remaining on mobile) / bottom-right on desktop (capped at 50vh) -->
-    <div class="border-t-gray-300 border-t-2 flex flex-col justify-between p-2 min-h-0 overflow-y-auto md:max-h-[70vh]">
+    <div class="border-t-gray-300 border-t-2 flex flex-col justify-between p-2 min-h-0 sm:overflow-y-auto md:max-h-[70vh]">
         <div>
       <div class="flex items-center gap-3">
         <h3 id="projectTitle" class="text-slate-900 text-2xl lg:text-3xl font-semibold mb-2"></h3>
-        <span id="projectCategory" class="text-[10px] font-medium px-2 py-1 bg-[#1311a3f3] text-white"></span>
+        <span id="projectCategory" class="text-[10px] hidden font-medium px-2 py-1 bg-[#1311a3f3] text-white"></span>
       </div>
 
       <p id="projectDescription" class="text-slate-700 text-sm lg:text-base leading-relaxed mb-4"></p>

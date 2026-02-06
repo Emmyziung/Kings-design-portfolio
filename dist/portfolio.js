@@ -121,7 +121,7 @@ console.log(projects)
                        
                         card.innerHTML = `
                             <div class="relative overflow-hidden">
-                                <img src="${project.coverImage}" alt="${project.title}" class="portfolio-image w-full aspect-square  object-cover">
+                                <img src="${project.coverImage}" alt="${project.title}" class="portfolio-image w-full aspect-square  object-cover object-top-left">
                            
                     
     <div class="absolute portfolio-image-overlay bottom-0 left-0 h-full w-full  " style="background: rgba(0,0,0,0.7);" data-project-id="${project.id}">

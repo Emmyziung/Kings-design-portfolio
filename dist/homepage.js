@@ -32,8 +32,8 @@ function renderDots(activeIndex) {
   for (let i = 0; i < totalDots; i++) {
     const dot = document.createElement("div");
     dot.className = `
-      w-2 h-2 rounded-full
-      ${i === activeIndex ? "bg-blue-600 w-4" : "bg-gray-400"}
+      w-2 h-2 max-sm:w-1.5 max-sm:h-1.5  rounded-full
+      ${i === activeIndex ? "bg-blue-600 w-4 max-sm:w-3 " : "bg-gray-400"}
     `;
     dotsContainer.appendChild(dot);
   }
