@@ -20,7 +20,7 @@
     
 </head>
 
-<body class="w-full overflow-x-hidden">
+<body class="w-full  bg-black/90 overflow-x-hidden">
     <!-- Mobile Menu Overlay -->
     <div id="mobileMenu" class="fixed inset-0 bg-[#d4d4d450] bg-opacity-50 z-50 lg:hidden">
         <div class="bg-slate-50 h-full w-4/5 max-w-sm p-6 mr-auto mobile-menu-slide">
@@ -62,13 +62,36 @@
               </nav>
         </header>
             <!-- Project Detail Modal -->
-    <section class="h-[89vh] max-sm:min-h-[89vh] my-2 sm:overflow-hidden">
-  <div
+
+<!--   <div
     id="projectModal"
-    class="h-full grid grid-cols-1 md:grid-cols-2 grid-rows-[auto_auto_1fr] md:grid-rows-2 gap-2 px-2 min-h-0"
-  >
-    <!-- LEFT: main image (spans 2 rows on desktop) -->
-    <div class="md:row-span-2 min-h-0">
+    class="h-full grid grid-cols-1 md:grid-cols-[2fr_3fr] grid-rows-[auto_auto_1fr] md:grid-rows-2 gap-5 px-2 min-h-0"
+  > -->
+    
+     <div class="   min-h-screen ">
+        
+        <section class="w-full   md:max-w-4/5 md:mx-auto">
+                <a href="./portfolio.html"  class="fixed top-18 right-8 max-sm:right-4  bg-white/60 hover:bg-white text-slate-800   p-2 max-sm:p-1 rounded-full shadow-lg  transition-colors z-40">
+       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </a>
+
+              
+                <div class="py-4 max-sm:px-2 text-white">
+                      <h2 class="text-lg max-sm:text-md font-bold"> PARTICULAR DESIGN</h2>
+                      <h3 class="font-medium text-sm max-sm:text-xs"> Type of the design..</h3>
+                </div>
+
+
+                <div id="projectImages" class="w-full grid grid-cols-1 gap-4 max-sm:gap-2 px-2">
+
+                </div>
+
+      
+            
+        </section>
+      
+     </div>
+    <div class="md:row-span-2 hidden min-h-0">
       <div class="relative bg-slate-50 h-fit flex items-center justify-center min-h-0">
         <img
           id="projectMainImage"
@@ -93,15 +116,15 @@
          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2-icon lucide-maximize-2"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/><path d="M9 21H3v-6"/></svg>
         </button>
       </div>
-    </div>
+    </div> 
 
     <!-- TOP RIGHT on desktop / middle row on mobile: thumbs -->
-    <div class="max-sm:mt-2 min-h-0">
+    <div class="max-sm:mt-2 hidden min-h-0">
       <div id="projectThumbs" class="flex flex-wrap max-sm:overflow-x-auto max-sm:flex-nowrap gap-2"></div>
     </div>
 
     <!-- BOTTOM (fills remaining on mobile) / bottom-right on desktop (capped at 50vh) -->
-    <div class="border-t-gray-300 border-t-2 flex flex-col justify-between p-2 min-h-0 sm:overflow-y-auto md:max-h-[70vh]">
+    <div class="border-t-gray-300 hidden border-t-2 flex flex-col justify-between p-2 min-h-0 sm:overflow-y-auto md:max-h-[70vh]">
         <div>
       <div class="flex items-center gap-3">
         <h3 id="projectTitle" class="text-slate-900 text-2xl lg:text-3xl font-semibold mb-2"></h3>
@@ -112,9 +135,9 @@
     </div>
     <a href="./portfolio.html" class="w-full"><button class="w-full rounded shadow-sm bg-[#1311a3f3] text-white font-medium text-center py-2">Back to Portfolio</button></a>
     </div>
-   
-  </div>
-</section>
+    
+ 
+
 
     <!-- Fullscreen Lightbox -->
     <div id="imageLightbox" class="fixed  inset-0 z-[60] bg-black flex items-center justify-center py-4">
@@ -130,7 +153,7 @@
         <img id="lightboxImage" src="" alt="Project image fullscreen" class="max-w-full max-h-full object-contain" />
     </div>
 
-          <!-- Footer -->
+                     <!-- Footer -->
     <footer id="footer" class="w-full">
    <div class="w-full text-white bg-[#111827]">
             <div class="w-full px-6 lg:px-0 lg:w-4/5 lg:mx-auto  lg:pt-12">
@@ -171,6 +194,7 @@
             </div>
         </div>
     </footer>
+   
     
 </body>
 </html>

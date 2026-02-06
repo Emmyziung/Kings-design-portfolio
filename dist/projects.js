@@ -9,7 +9,7 @@
 
         const projectId = new URLSearchParams(window.location.search).get("id");
 if (!projectId) throw new Error("Missing ?id= in URL");
-   const projectModal = document.getElementById('projectModal');
+   const projectImages = document.getElementById('projectImages');
     const closeProjectBtn = document.getElementById('closeProject');
     const projectTitle = document.getElementById('projectTitle');
     const projectCategory = document.getElementById('projectCategory');
@@ -47,6 +47,8 @@ const renderProject = (project)=> {
                     currentIndexGlobal = 0;
                     projectMainImage.src = currentImagesGlobal[0];
                     
+                    projectImages.innerHTML = ''
+
                     projectThumbs.innerHTML = '';
                     currentImagesGlobal.forEach((src, idx) => {
                         const img = document.createElement('img');
@@ -58,6 +60,15 @@ const renderProject = (project)=> {
                             projectMainImage.src = currentImagesGlobal[currentIndexGlobal]; 
                         });
                         projectThumbs.appendChild(img);
+                        const image = document.createElement('img');
+                        image.src = src; 
+                        image.alt = `Image ${idx+1}`;
+                        image.className = 'max-sm:w-full   object-contain ';
+                        image.addEventListener('click', () => { 
+                            currentIndexGlobal = idx; 
+                            openLightbox() 
+                        });
+                        projectImages.appendChild(image);
                     });
 }
 prevImageBtn.onclick = () => { 
