@@ -10,12 +10,41 @@
   <script src="admin.js" type="module"></script>
   <script src="update.js" type="module"></script>
   <script src="../script.js" defer></script>
-
+  
 
   <script>
     console.log('Admin page loaded');
   </script>
   <style>
+
+/* PDF-safe colors for html2canvas: kill OKLCH/OKLAB inside invoicePreview */
+#invoicePreview,
+#invoicePreview * {
+  color: #1e293b !important;
+  background-color: transparent;
+  border-color: #e2e8f0 !important;
+}
+
+/* restore intended backgrounds (set explicit HEX/RGB) */
+#invoicePreview {
+  background-color: #ffffff !important;
+}
+
+#invoicePreview .pdf-white {
+  color: #ffffff !important;
+}
+
+#invoicePreview .pdf-blue-soft {
+  background-color: #1c388e1a !important; /* blue-900/10 equivalent */
+}
+
+#invoicePreview .pdf-head {
+  background-color: #0b0979d4 !important; /* #0b0979d3 equivalent */
+  color: #ffffff !important;
+}
+
+
+
     /* Custom styles for admin panel */
     .image-preview {
       transition: all 0.3s ease;
@@ -45,7 +74,7 @@
     /* Drag and drop styles */
     .image-preview.drag-over {
       border: 2px dashed #1311a3f3;
-      background-color: rgba(19, 17, 163, 0.1);
+      background-color: rgba(19, 17, 163, 0.102);
     }
     .image-preview.opacity-50 {
       opacity: 0.5;
@@ -95,9 +124,10 @@
         </header>
        
 <div class="w-full bg-white border-b border-b-gray-300" >
-    <nav class="w-full max-w-xl flex  ">
-        <div id="upload" class="w-1/2 admin-tab py-3 text-center cursor-pointer  text-md text-slate-700 hover:text-slate-800">Upload</div>
-        <div id="update" class="w-1/2 admin-tab py-3 text-center cursor-pointer  text-md text-slate-700 hover:text-slate-800 ">Update</div>
+    <nav class="w-full mx-auto max-w-4xl flex max-sm:overflow-x-scroll ">
+        <div id="upload" class="w-1/3 admin-tab py-3 text-center cursor-pointer font-medium  text-md text-slate-700 hover:text-slate-800">Upload</div>
+        <div id="update" class="w-1/3 admin-tab py-3 text-center cursor-pointer font-medium  text-md text-slate-700 hover:text-slate-800 ">Update</div>
+        <div id="invoice" class="w-1/3 admin-tab py-3 whitespace-nowrap text-nowrap  text-center cursor-pointer font-medium  text-md text-slate-700 hover:text-slate-800 ">Generate Invoice</div>
         
     </nav>
     </div>
@@ -159,7 +189,7 @@
           </form>
         </div>
         
-                <section id="updatePage" hidden class="w-full   px-4 mb-16">
+                <section id="updatePage" hidden class="w-full max-w-4xl  px-4 mb-16">
         <div class="w-full lg:w-4/5 lg:mx-auto">
      
 
@@ -188,6 +218,182 @@
             </div>
             </div>
     </section>
+
+    <section id="invoicePage" hidden class="w-full max-w-4xl mx-auto   px-4 mb-16">
+       
+    <form id="itemsForm" class="w-[105%] rounded-xl shadow-lg bg-white -mx-4 p-6">
+  <p class="text-[#1311a3f3] text-xl pb-4 font-semibold">Invoice Generator</p>
+
+  <!-- Navigation (hidden until > 1 item) -->
+  <div id="navBar" class="hidden items-center justify-between gap-3 mb-4">
+    <button
+      type="button"
+      id="prevBtn"
+      class="px-4 py-2 rounded-lg border-2 border-[#cbd5e1] text-[#334155] hover:border-[#1311a3f3] hover:text-[#1311a3f3] transition"
+    >
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+    </button>
+ 
+    <div class="text-sm text-[#475569]">
+      <span id="entryIndicator" class="font-medium">Entry 1 of 1</span>
+    </div>
+
+    <button
+      type="button"
+      id="nextBtn"
+      class="px-4 py-2 rounded-lg border-2 border-[#cbd5e1] text-[#334155] hover:border-[#1311a3f3] hover:text-[#1311a3f3] transition"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </button>
+  
+  </div>
+
+  <!-- Fields -->
+      <div class="mb-6">
+      <label for="clientName" class="block text-sm font-medium text-[#334155] mb-1">Client Name</label>
+      <input
+        id="clientName"
+        type="text"
+   
+        required
+        class="w-full px-4 py-3 border-2 border-[#cbd5e1] rounded-lg focus:border-[#1311a3f3] focus:outline-none transition-colors"
+        placeholder="Enter Client's Name"
+      />
+    </div>
+
+  <div class="mb-6">
+    <label for="desc" class="block text-sm font-medium text-[#334155] mb-1">Description</label>
+    <textarea
+      id="desc"
+      rows="4"
+      required
+      class="w-full px-4 py-3 border-2 border-[#cbd5e1] rounded-lg focus:border-[#1311a3f3] focus:outline-none transition-colors"
+      placeholder="e.g. Logo design, Hosting, UI redesign..."
+    ></textarea>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
+    <div>
+      <label for="qty" class="block text-sm font-medium text-[#334155] mb-1">Quantity</label>
+      <input
+        id="qty"
+        type="number"
+        min="0"
+        step="1"
+        required
+        class="w-full px-4 py-3 border-2 border-[#cbd5e1] rounded-lg focus:border-[#1311a3f3] focus:outline-none transition-colors"
+        placeholder="e.g. 2"
+      />
+    </div>
+
+    <div>
+      <label for="rate" class="block text-sm font-medium text-[#334155] mb-1">Rate</label>
+      <input
+        id="rate"
+        type="number"
+        min="0"
+        step="100"
+        required
+        class="w-full px-4 py-3 border-2 border-[#cbd5e1] rounded-lg focus:border-[#1311a3f3] focus:outline-none transition-colors"
+        placeholder="e.g. 15000"
+      />
+    </div>
+  </div>
+
+  <!-- Amount preview -->
+  <div class="mb-6 flex items-center justify-between rounded-lg border-2 border-[#e2e8f0] bg-[#f8fafc] px-4 py-3">
+    <p class="text-sm text-[#475569]">Amount (auto):</p>
+    <p id="amountPreview" class="font-semibold text-[#0f172a]">₦0.00</p>
+  </div>
+
+  <!-- Actions -->
+  <div class="flex  gap-3">
+    <button
+      type="button"
+      id="addMoreBtn"
+      class="bg-[#1311a3f3]/90 text-white px-4 py-3 rounded-lg hover:bg-[#1311a3f3] transition duration-200"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+    </button>
+
+    <button
+      type="submit"
+      id="generateBtn"
+      class="w-full border-2 border-[#1311a3f3] text-[#1311a3f3] py-3 rounded-lg font-medium hover:bg-[#1311a3f3] hover:text-white transition-all duration-300"
+    >
+      Generate Preview
+    </button>
+  </div>
+
+  <p class="text-sm text-[#64748b] mt-3">
+    Tip: “+” creates another row for your invoice table. Use Previous/Next to edit entries.
+  </p>
+</form>
+
+          <div id="invoicePreview" class=" w-full flex flex-col min-h-[295mm]   pt-10 pb-2">
+            <div class="flex-1 mb-20 px-8">
+            <div class="invoiceHeader mb-4 flex justify-between items-end" >
+              <img src="../b img/InShot_20250813_150708080.png" alt="logo" class="h-30 w-30">
+              <div>
+                <h1 class="text-5xl font-semibold !text-[#0e0c8ff3]">Invoice</h1>
+                <p id="invDate" class="font-semibold text-sm text-right">14th January, 2026</p>
+              </div>
+            </div>
+
+            <div class="flex justify-between text-sm text-[#1e293b] font-semibold items-center ">
+              <div>
+                <p><span class="!text-[#0e0c8ff3]">Address: <br> </span> Sagamu Ogun State</p>
+               <br>
+                <p><span class="!text-[#0e0c8ff3]">Email: <br> </span> oba.olunuga@gmail.com</p>
+              </div>
+              <div class="w-[37%] border-y-2 border-y-[#d1d5db]/50 py-2">
+                <div class="h-26 px-4 py-4 w-full pdf-blue-soft">
+                  <p>Bill To:</p>
+                  <p id="invName">Customer 1</p>
+
+                </div>
+              </div>
+            </div>
+
+             <table class="w-full my-6 text-sm border-separate border-spacing-0.5  ">
+    <thead >
+      <tr class=" pdf-white ">
+        <th class="text-left py-3 pl-4 font-medium pdf-head">Description</th>
+        <th class="text-center py-3  font-medium pdf-head">Qty</th>
+        <th class="text-center py-3  font-medium pdf-head">Rate</th>
+        <th class="text-center py-3  font-medium pdf-head">Amount</th>
+      </tr>
+    </thead>
+    <tbody id="itemsBody"></tbody>
+            </table>
+
+             <div class="flex justify-between items-start text-sm text-[#1e293b]   ">
+              <div>
+                <p class="!text-[#0e0c8ff3] font-semibold">Payment Terms </p>
+                  <p>50% upfront before work begins.</p>
+                  <p>50% on delivery.</p>
+                  <p class="!text-[#0e0c8ff3] font-semibold">Bank Details: 5068470016</p>
+                  <p class="!text-[#0e0c8ff3] font-semibold">FCMB </p>
+
+               
+             
+              </div>
+              <div >
+                         <p class="!text-[#0e0c8ff3] font-semibold">Notes </p>
+                         <p>Thank you for your patronage!</p>
+                         <br>
+                         <p class="text-right font-bold ">Olunuga Obateniola</p>
+                         <p class="text-[10px] text-right"> Lead Designer . Kings Design </p>
+              </div>
+            </div>
+          </div>
+         <div class="w-full  ">
+            <img src="../b img/INVOICE - MICH.JPG" alt="">
+          </div>
+          </div>
+
+    </section>
+
      
         
         <!-- Success Message -->
@@ -202,5 +408,8 @@
         
 
      </div>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="invoice.js" ></script>
+
 </body>
 </html>

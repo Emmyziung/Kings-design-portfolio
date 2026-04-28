@@ -147,7 +147,7 @@
     </div>
 
     <!-- BOTTOM (fills remaining on mobile) / bottom-right on desktop (capped at 50vh) -->
-    <div class="border-t-gray-300 hidden border-t-2 flex flex-col justify-between p-2 min-h-0 sm:overflow-y-auto md:max-h-[70vh]">
+    <div class="border-t-gray-300 hidden border-t-2  flex-col justify-between p-2 min-h-0 sm:overflow-y-auto md:max-h-[70vh]">
         <div>
       <div class="flex items-center gap-3">
         <h3 id="projectTitle" class="text-slate-900 text-2xl lg:text-3xl font-semibold mb-2"></h3>
@@ -167,10 +167,10 @@
         <button id="closeLightbox"       class="absolute top-3 left-3  bg-white/80 hover:bg-white text-slate-800 rounded-full w-10 h-10 flex items-center justify-center shadow-sm font-bold">
          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize2-icon lucide-minimize-2"><path d="m14 10 7-7"/><path d="M20 10h-6V4"/><path d="m3 21 7-7"/><path d="M4 14h6v6"/></svg>
         </button>
-        <button id="lightboxPrev"class="bg-transparent absolute left-3 lg:left-6 text-white/30  hover:text-white -ml-2 ">
+        <button id="lightboxPrev" class="bg-transparent absolute max-sm:hidden left-3 lg:left-6 text-white/30  hover:text-white -ml-2 ">
            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>
           </button>
-        <button id="lightboxNext" class="bg-transparent absolute right-3 lg:right-6 text-white/30  hover:text-white -mr-2 ">
+        <button id="lightboxNext" class="bg-transparent max-sm:hidden absolute right-3 lg:right-6 text-white/30  hover:text-white -mr-2 ">
           <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
           </button>
         <img id="lightboxImage" src="" alt="Project image fullscreen" class="max-w-full max-h-full object-contain" />

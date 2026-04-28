@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Update Project |Admin Dashboard | KingsDesign</title>
+  <link rel="icon" type="image/png" href="../b img/InShot_20250813_151255810.png">
+  <link rel="stylesheet" href="../output.css">
+
+  <script src="invoice.js" type="module"></script>
+  <script src="../script.js" defer></script>
+
+
+  <script>
+    console.log('Admin page loaded');
+  </script>
+  <style>
+    /* Custom styles for admin panel */
+    .image-preview {
+      transition: all 0.3s ease;
+    }
+    .image-preview:hover {
+      transform: scale(1.05);
+    }
+    .cover-image {
+      border: 3px solid #1311a3f3;
+    }
+    .sortable-placeholder {
+      border: 2px dashed #ccc;
+      background-color: #f9f9f9;
+      min-height: 100px;
+    }
+    .loading-spinner {
+      border: 4px solid rgba(0, 0, 0, 0.1);
+      border-left-color: #1311a3f3;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    /* Drag and drop styles */
+    .image-preview.drag-over {
+      border: 2px dashed #1311a3f3;
+      background-color: rgba(19, 17, 163, 0.1);
+    }
+    .image-preview.opacity-50 {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+     <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-[#d4d4d450] bg-opacity-50 z-50 lg:hidden">
+        <div class="bg-white h-full w-4/5 max-w-sm p-6 mr-auto mobile-menu-slide">
+            <div class="flex justify-between items-center mb-8">
+                <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
+                <button id="closeMenu" class="text-2xl text-slate-700 hover:text-[#1311a3f3]">&times;</button>
+            </div>
+            <nav class="flex font-medium flex-col space-y-4">
+                <a href="../index.html" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Home</a>
+                <a href="../index.html#about" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">About</a>
+                <a href="../index.html#services" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Services</a>
+                <a href="../portfolio.html" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Portfolio</a>
+                <a href="../index.html#testimonials" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Testimonials</a>
+                <div id="logoutBtn" class="text-slate-700 hover:text-[#1311a3f3] py-3 px-2 rounded hover:bg-slate-100 transition-colors">Sign Out</div>
+            </nav>
+        </div>
+    </div>
+    <header class="flex sticky top-0 justify-between py-2 border-b bg-white shadow-sm border-b-gray-200 z-50  items-center pl-4">
+            <div class="flex  items-center">
+                <img src="../b img/InShot_20250813_151255810.png" alt="KingsDesign logo" class="h-7 w-auto mr-2">
+                <p class="text-[#1311a3f3] text-xl font-semibold">KingsDesign</p>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="openMenu" class="lg:hidden text-2xl text-slate-700 p-2 hover:bg-slate-100 rounded">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex  text-slate-700 min-w-[45vw]  justify-around items-center z-10">
+                <a href="../index.html" class="text-base hover:text-[#1311a3f3] transition-colors">Home</a>
+                <a href="../index.html#about" class="text-base hover:text-[#1311a3f3] transition-colors">About</a>
+                <a href="../index.html#services" class="text-base hover:text-[#1311a3f3] transition-colors">Services</a>
+                <a href="../portfolio.html" class="text-base hover:text-[#1311a3f3] transition-colors">Portfolio</a>
+                <a href="../index.html#testimonials" class="text-base hover:text-[#1311a3f3] transition-colors">Testimonials</a>
+                <div id="desktopLogoutBtn" class="text-base whitespace-nowrap cursor-pointer rounded shadow-xs text-white px-4 py-2 bg-[#1311a3f3] hover:bg-[#0f0d8a] transition-colors"> Sign out</div>
+              </nav>
+        </header>
+
+
+        </body>
+        </html>

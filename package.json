@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind":  "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch"
+    "tailwind": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch"
   },
   "keywords": [],
   "author": "",
@@ -16,10 +16,10 @@
     "tailwindcss": "^4.1.11"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.11"
+    "@tailwindcss/cli": "^4.1.11",
+    "html2pdf.js": "^0.14.0"
   },
   "script": {
     "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --watch"
-    
   }
 }

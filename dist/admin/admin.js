@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
         // Get DOM elements
         const adminPage = document.getElementById('adminContent')
+        const invoicePage = document.getElementById('invoicePage')
+        const invoiceTab = document.getElementById('invoice')
         const uploadTab = document.getElementById('upload')
         const updateTab = document.getElementById('update')
         const uploadPage = document.getElementById('uploadPage')
@@ -54,11 +56,20 @@ document.addEventListener('DOMContentLoaded', function() {
 function showUpload() {
   uploadPage.hidden = false;
   updatePage.hidden = true;
+  invoicePage.hidden = true;
 }
 
 function showUpdate() {
   uploadPage.hidden = true;
   updatePage.hidden = false;
+  invoicePage.hidden = true;
+}
+
+function showInvoice() {
+    console.log('yh')
+  uploadPage.hidden = true;
+  updatePage.hidden = true;
+  invoicePage.hidden = false;
 }
 function highlightTab(activeTab) {
   const tabs = document.querySelectorAll(".admin-tab");
@@ -93,6 +104,10 @@ highlightTab(uploadTab)
             showUpdate()
             highlightTab(updateTab)
         })
+        invoiceTab.addEventListener('click', ()=>{
+            showInvoice()
+            highlightTab(invoiceTab)
+        })
        
   
        
@@ -102,51 +117,44 @@ highlightTab(uploadTab)
 
 
 
+        let selectedFiles = [];
 
         // Handle image selection and preview
-        imageUpload.addEventListener('change', function(e) {
-            console.log('File input changed');
-            const files = e.target.files;
-            console.log('Number of files:', files.length);
-photosInfo.textContent= files.length > 0
-            ? `${files.length} file${files.length > 1 ? "s" : ""} selected`
-            : "No file chosen"
-            
-            if (files.length > 0) {
-                // Show image preview container
-                imagePreviewContainer.classList.remove('hidden');
-                imagePreview.innerHTML = '';
-              
-                // Create preview for each selected image
-                Array.from(files).forEach((file, index) => {
-                    console.log('Processing file:', index);
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        console.log('File loaded:', index);
-                        
-                        const imgContainer = document.createElement('div');
-                        imgContainer.className = 'image-preview relative cursor-move border-2 border-transparent';
-                        imgContainer.dataset.index = index;
-                        
-                        imgContainer.innerHTML = `
-                            <img src="${e.target.result}" alt="Preview" class="w-full h-32 object-cover rounded-lg">
-                            ${index === 0 ? '<div class="absolute top-2 left-2 bg-[#1311a3f3] text-white text-xs px-2 py-1 rounded">Cover</div>' : ''}
-                        `;
-                        
-                        console.log('Before appending to imagePreview');
-                        imagePreview.appendChild(imgContainer);
-                        console.log('Image container added:', index);
-                        console.log('imagePreview child count:', imagePreview.children.length);
-                    };
-                    reader.onerror = function(e) {
-                        console.error('Error reading file:', e);
-                    };
-                    reader.readAsDataURL(file);
-                });
-            } else {
-                imagePreviewContainer.classList.add('hidden');
-            }
-        });
+        imageUpload.addEventListener('change', function (e) {
+    const files = Array.from(e.target.files);
+
+    if (files.length === 0) return;
+
+    // Append new files instead of replacing
+    selectedFiles = [...selectedFiles, ...files];
+
+    photosInfo.textContent = `${selectedFiles.length} file${selectedFiles.length > 1 ? "s" : ""} selected`;
+
+    imagePreviewContainer.classList.remove('hidden');
+    imagePreview.innerHTML = '';
+
+    selectedFiles.forEach((file, index) => {
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'image-preview relative cursor-move border-2 border-transparent';
+            imgContainer.dataset.index = index;
+
+            imgContainer.innerHTML = `
+                <img src="${event.target.result}" class="w-full h-32 object-cover rounded-lg">
+                ${index === 0 ? '<div class="absolute top-2 left-2 bg-[#1311a3f3] text-white text-xs px-2 py-1 rounded">Cover</div>' : ''}
+            `;
+
+            imagePreview.appendChild(imgContainer);
+        };
+
+        reader.readAsDataURL(file);
+    });
+
+    
+});
+
 
         uploadForm.addEventListener('submit', async function(e) {
             e.preventDefault();

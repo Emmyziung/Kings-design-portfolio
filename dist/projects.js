@@ -68,7 +68,7 @@ const renderProject = (project)=> {
                         const image = document.createElement('img');
                         image.src = src; 
                         image.alt = `Image ${idx+1}`;
-                        image.className = 'max-sm:w-full   object-contain ';
+                        image.className = 'w-full   object-contain cursor-pointer';
                         image.addEventListener('click', () => { 
                             currentIndexGlobal = idx; 
                             openLightbox() 
@@ -109,6 +109,39 @@ prevImageBtn.onclick = () => {
                 if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightbox);
                 if (imageLightbox) imageLightbox.addEventListener('click', (e) => { if (e.target === imageLightbox) closeLightbox(); });
                 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && imageLightbox && imageLightbox.classList.contains('show')) closeLightbox(); });
+
+                let touchStartX = 0;
+let touchEndX = 0;
+const SWIPE_THRESHOLD = 50; // minimum px to trigger swipe
+
+if (imageLightbox) {
+imageLightbox.style.touchAction = "pan-y";
+
+
+  imageLightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  imageLightbox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+}
+
+function handleSwipe() {
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) < SWIPE_THRESHOLD) return;
+
+  if (diff > 0) {
+    // Swiped left → next image
+    nextLightbox();
+  } else {
+    // Swiped right → previous image
+    prevLightbox();
+  }
+}
+
 
   async function fetchProject(id) {
     const cacheProject = getProjectFromCache(id)
